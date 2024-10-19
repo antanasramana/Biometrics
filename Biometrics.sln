@@ -3,36 +3,24 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35122.118
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Biometrics", "Biometrics.csproj", "{9015FA8C-9EDD-4FE1-A244-1B237CD01980}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Biometrics", "src\Biometrics\Biometrics.csproj", "{4A7BB6FB-ED65-4179-984C-C55D65CA8860}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WinBiometricDotNet", "src\WinBiometricDotNet\WinBiometricDotNet.csproj", "{05F61325-B42D-44FC-9B5A-AEE7570DA13D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
-		Debug|ARM64 = Debug|ARM64
-		Debug|x64 = Debug|x64
-		Debug|x86 = Debug|x86
 		Release|Any CPU = Release|Any CPU
-		Release|ARM64 = Release|ARM64
-		Release|x64 = Release|x64
-		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{9015FA8C-9EDD-4FE1-A244-1B237CD01980}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9015FA8C-9EDD-4FE1-A244-1B237CD01980}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9015FA8C-9EDD-4FE1-A244-1B237CD01980}.Debug|ARM64.ActiveCfg = Debug|Any CPU
-		{9015FA8C-9EDD-4FE1-A244-1B237CD01980}.Debug|ARM64.Build.0 = Debug|Any CPU
-		{9015FA8C-9EDD-4FE1-A244-1B237CD01980}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{9015FA8C-9EDD-4FE1-A244-1B237CD01980}.Debug|x64.Build.0 = Debug|Any CPU
-		{9015FA8C-9EDD-4FE1-A244-1B237CD01980}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{9015FA8C-9EDD-4FE1-A244-1B237CD01980}.Debug|x86.Build.0 = Debug|Any CPU
-		{9015FA8C-9EDD-4FE1-A244-1B237CD01980}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9015FA8C-9EDD-4FE1-A244-1B237CD01980}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9015FA8C-9EDD-4FE1-A244-1B237CD01980}.Release|ARM64.ActiveCfg = Release|Any CPU
-		{9015FA8C-9EDD-4FE1-A244-1B237CD01980}.Release|ARM64.Build.0 = Release|Any CPU
-		{9015FA8C-9EDD-4FE1-A244-1B237CD01980}.Release|x64.ActiveCfg = Release|Any CPU
-		{9015FA8C-9EDD-4FE1-A244-1B237CD01980}.Release|x64.Build.0 = Release|Any CPU
-		{9015FA8C-9EDD-4FE1-A244-1B237CD01980}.Release|x86.ActiveCfg = Release|Any CPU
-		{9015FA8C-9EDD-4FE1-A244-1B237CD01980}.Release|x86.Build.0 = Release|Any CPU
+		{4A7BB6FB-ED65-4179-984C-C55D65CA8860}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A7BB6FB-ED65-4179-984C-C55D65CA8860}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A7BB6FB-ED65-4179-984C-C55D65CA8860}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A7BB6FB-ED65-4179-984C-C55D65CA8860}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05F61325-B42D-44FC-9B5A-AEE7570DA13D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05F61325-B42D-44FC-9B5A-AEE7570DA13D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05F61325-B42D-44FC-9B5A-AEE7570DA13D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05F61325-B42D-44FC-9B5A-AEE7570DA13D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

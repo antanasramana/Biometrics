@@ -1,0 +1,2356 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WinBiometricDotNet</name>
+    </assembly>
+    <members>
+        <member name="T:WinBiometricDotNet.AntiSpoofPolicy">
+            <summary>
+            ユーザーのアンチ スプーフィング ポリシーを表現します。
+            </summary>
+        </member>
+        <member name="M:WinBiometricDotNet.AntiSpoofPolicy.#ctor">
+            <summary>
+            <see cref="T:WinBiometricDotNet.AntiSpoofPolicy"/> クラスの新しいインスタンスを初期化します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.AntiSpoofPolicy.Action">
+            <summary>
+            アンチ スプーフィング ポリシーとして採用するアクションを取得または設定します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.AntiSpoofPolicy.Source">
+            <summary>
+            アンチ スプーフィング ポリシーの値をを取得または設定します。
+            </summary>
+        </member>
+        <member name="T:WinBiometricDotNet.AntiSpoofPolicyAction">
+            <summary>
+            アンチ スプーフィング ポリシーとして採用するアクションの種類を指定します。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.AntiSpoofPolicyAction.Disable">
+            <summary>
+            生体要素に対するスプーフィングの検出を無効にします。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.AntiSpoofPolicyAction.Enable">
+            <summary>
+            生体要素に対するスプーフィングの検出を有効にします。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.AntiSpoofPolicyAction.Remove">
+            <summary>
+            アカウントからバイオメトリックス要素に対する全てのアンチ スプーフィング ポリシーを削除します。
+            </summary>
+        </member>
+        <member name="T:WinBiometricDotNet.AsyncCompletedEventArgs">
+            <summary>
+            <see cref="E:WinBiometricDotNet.WinBiometric.AsyncCompleted"/> イベント ハンドラーのデータを提供します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.AsyncCompletedEventArgs.Result">
+            <summary>
+            イベントの結果を表す値を取得します。
+            </summary>
+        </member>
+        <member name="T:WinBiometricDotNet.AsyncCompletedHandler">
+            <summary>
+            <see cref="E:WinBiometricDotNet.WinBiometric.AsyncCompleted"/> イベントを処理するメソッドを表します。
+            </summary>
+            <param name="sender">イベントのソース。</param>
+            <param name="e"><see cref="T:WinBiometricDotNet.AsyncCompletedEventArgs"/> イベント データを格納します。</param>
+        </member>
+        <member name="T:WinBiometricDotNet.AsyncNotificationMethod">
+            <summary>
+            <para>クライアント アプリケーションへ非同期操作に対する完了通知がどのように配信されるかを指定する定数を定義します。</para>
+            <para>この API は 製品 インフラストラクチャをサポートします。コードから直接使用するためのものではありません。</para>
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.AsyncNotificationMethod.NotifyNone">
+            <summary>
+            操作が同期です。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.AsyncNotificationMethod.NotifyCallback">
+            <summary>
+            クライアント実装の PWINBIO_ASYNC_COMPLETION_CALLBACK 関数がフレームワークから呼び出されます。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.AsyncNotificationMethod.NotifyMessage">
+            <summary>
+            フレームワークがクライアント アプリケーションのウィンドウ メッセージ キューに対して完了通知を送信します。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.AsyncNotificationMethod.NotifyMaximumValue">
+            <summary>
+            最大列挙値。この定数は WinBioAsyncOpenFramework や WinBioAsyncOpenSession から直接使用されません。
+            </summary>
+        </member>
+        <member name="T:WinBiometricDotNet.AsyncResult">
+            <summary>
+            <see cref="T:WinBiometricDotNet.AsyncResult"/> クラスは非同期操作の結果を格納します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.AsyncResult.ApiStatus">
+            <summary>
+            操作によるエラー コードを取得します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.AsyncResult.Framework">
+            <summary>
+            <see cref="M:WinBiometricDotNet.WinBiometric.AsyncOpenFramework(System.IntPtr)"/> 関数の呼び出しによって開始された非同期セッションのハンドルを取得します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.AsyncResult.OperationType">
+            <summary>
+            非同期操作の種類を取得します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.AsyncResult.Parameter">
+            <summary>
+            クライアント アプリケーションによって開始された非同期操作の成功または失敗についての追加情報を格納するデータを取得します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.AsyncResult.SequenceNumber">
+            <summary>
+            非同期操作のシーケンス番号を取得します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.AsyncResult.Session">
+            <summary>
+            <see cref="M:WinBiometricDotNet.WinBiometric.AsyncOpenSession(System.IntPtr)"/> 関数の呼び出しによって開始された非同期セッションのハンドルを取得します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.AsyncResult.TimeStamp">
+            <summary>
+            バイオメトリックス操作を開始した時点のシステム日時を取得します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.AsyncResult.UnitId">
+            <summary>
+            操作を実行するバイオメトリックス装置の数値的な装置識別子を取得します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.AsyncResult.UserData">
+            <summary>
+            呼び出し側によって提供されたオプション バッファーのアドレスを取得します。
+            </summary>
+        </member>
+        <member name="T:WinBiometricDotNet.AsyncResultCaptureSample">
+            <summary>
+            <see cref="T:WinBiometricDotNet.AsyncResultCaptureSample"/> クラスは <see cref="M:WinBiometricDotNet.WinBiometric.CaptureSample(WinBiometricDotNet.Session)"/> への非同期呼び出しの結果を格納します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.AsyncResultCaptureSample.Sample">
+            <summary>
+            サンプルを含むデータを取得します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.AsyncResultCaptureSample.SampleSize">
+            <summary>
+            <see cref="P:WinBiometricDotNet.AsyncResultCaptureSample.Sample"/> プロパティのバイト単位のサイズを含む値を取得します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.AsyncResultCaptureSample.RejectDetail">
+            <summary>
+            バイオメトリックス サンプルをキャプチャした際の失敗に関する追加情報を含む値を取得します。
+            </summary>
+        </member>
+        <member name="T:WinBiometricDotNet.AsyncResultControlUnit">
+            <summary>
+            <see cref="T:WinBiometricDotNet.AsyncResultControlUnit"/> クラスは <see cref="M:WinBiometricDotNet.WinBiometric.ControlUnit(WinBiometricDotNet.Session,System.UInt32,WinBiometricDotNet.Component,System.UInt32,System.Byte[],System.Byte[],System.IntPtr@,System.UInt32@)"/> または <see cref="M:WinBiometricDotNet.WinBiometric.ControlUnitPrivileged(WinBiometricDotNet.Session,System.UInt32,WinBiometricDotNet.Component,System.UInt32,System.Byte[],System.Byte[],System.IntPtr@,System.UInt32@)"/> への非同期呼び出しの結果を格納します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.AsyncResultControlUnit.Component">
+            <summary>
+            操作を実行したバイオメトリックス装置内のコンポーネントを示す値を取得します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.AsyncResultControlUnit.ControlCode">
+            <summary>
+            バイオメトリックス装置によって認識されたベンダ定義のコードを示す値を取得します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.AsyncResultControlUnit.OperationStatus">
+            <summary>
+            コントロール操作の結果を示すベンダ定義のステータス コードを示す値を取得します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.AsyncResultControlUnit.ReceiveBuffer">
+            <summary>
+            <see cref="P:WinBiometricDotNet.AsyncResultControlUnit.Component"/> プロパティで指定されたアダプタに送信された情報を受け取るバッファを取得します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.AsyncResultControlUnit.ReceiveDataSize">
+            <summary>
+            <see cref="P:WinBiometricDotNet.AsyncResultControlUnit.ReceiveBuffer"/> プロパティで指定されたバッファに書き込まれたサイズ (バイト単位) を取得します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.AsyncResultControlUnit.SendBuffer">
+            <summary>
+            コンポーネントによってアダプタに送信されたコントロール情報を含むバッファを取得します。
+            </summary>
+        </member>
+        <member name="T:WinBiometricDotNet.AsyncResultDeleteTemplate">
+            <summary>
+            <see cref="T:WinBiometricDotNet.AsyncResultDeleteTemplate"/> クラスは <see cref="M:WinBiometricDotNet.WinBiometric.DeleteTemplate(WinBiometricDotNet.Session,System.UInt32,WinBiometricDotNet.BiometricIdentity,WinBiometricDotNet.FingerPosition)"/> への非同期呼び出しの結果を格納します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.AsyncResultDeleteTemplate.Identity">
+            <summary>
+            削除されるテンプレートの GUID (グローバル一意識別子) または SID (セキュリティ識別子) を含むデータを取得します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.AsyncResultDeleteTemplate.FingerPosition">
+            <summary>
+            削除されるテンプレートについての追加情報を提供する値を取得します。
+            </summary>
+        </member>
+        <member name="T:WinBiometricDotNet.AsyncResultEnrollBegin">
+            <summary>
+            <see cref="T:WinBiometricDotNet.AsyncResultEnrollBegin"/> クラス <see cref="M:WinBiometricDotNet.WinBiometric.BeginEnroll(WinBiometricDotNet.Session,WinBiometricDotNet.FingerPosition,System.UInt32)"/> への非同期呼び出しの結果を格納します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.AsyncResultEnrollBegin.FingerPosition">
+            <summary>
+            登録についての追加情報を提供する値を取得します。
+            </summary>
+        </member>
+        <member name="T:WinBiometricDotNet.AsyncResultEnrollCapture">
+            <summary>
+            <see cref="T:WinBiometricDotNet.AsyncResultEnrollCapture"/> クラスは <see cref="M:WinBiometricDotNet.WinBiometric.CaptureEnroll(WinBiometricDotNet.Session)"/> への非同期呼び出しの結果を格納します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.AsyncResultEnrollCapture.RejectDetail">
+            <summary>
+            バイオメトリックス サンプルをキャプチャした際の失敗に関する追加情報を含む値を取得します
+            </summary>
+        </member>
+        <member name="T:WinBiometricDotNet.AsyncResultEnrollCommit">
+            <summary>
+            <see cref="T:WinBiometricDotNet.AsyncResultEnrollCommit"/> クラスは <see cref="M:WinBiometricDotNet.WinBiometric.CommitEnroll(WinBiometricDotNet.Session)"/> への非同期呼び出しの結果を格納します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.AsyncResultEnrollCommit.Identity">
+            <summary>
+            テンプレートの識別子 (GUID または SID) を受け取るデータを取得します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.AsyncResultEnrollCommit.IsNewTemplate">
+            <summary>
+            データベースに追加されるテンプレートが新しいかどうかを示す値を取得します。            
+            </summary>
+        </member>
+        <member name="T:WinBiometricDotNet.AsyncResultEnumBiometricUnits">
+            <summary>
+            <see cref="T:WinBiometricDotNet.AsyncResultEnumBiometricUnits"/> クラスは <see cref="M:WinBiometricDotNet.WinBiometric.AsyncEnumBiometricUnits(WinBiometricDotNet.Framework,WinBiometricDotNet.BiometricTypes)"/> への非同期呼び出しの結果を格納します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.AsyncResultEnumBiometricUnits.BiometricUnits">
+            <summary>            
+            <see cref="T:WinBiometricDotNet.BiometricUnit"/> の配列を取得します。
+            </summary>
+        </member>
+        <member name="T:WinBiometricDotNet.AsyncResultEnumDatabases">
+            <summary>
+            <see cref="T:WinBiometricDotNet.AsyncResultEnumDatabases"/> クラスは <see cref="M:WinBiometricDotNet.WinBiometric.AsyncEnumDatabases(WinBiometricDotNet.Framework,WinBiometricDotNet.BiometricTypes)"/> への非同期呼び出しの結果を格納します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.AsyncResultEnumDatabases.Databases">
+            <summary>
+            <see cref="T:WinBiometricDotNet.BiometricDatabase"/> の配列を取得します。
+            </summary>
+        </member>
+        <member name="T:WinBiometricDotNet.AsyncResultEnumEnrollments">
+            <summary>
+            <see cref="T:WinBiometricDotNet.AsyncResultEnumEnrollments"/> クラスは <see cref="M:WinBiometricDotNet.WinBiometric.EnumEnrollments(WinBiometricDotNet.Session,System.UInt32)"/> への非同期呼び出しの結果を格納します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.AsyncResultEnumEnrollments.Identity">
+            <summary>
+            サブファクタが取得されるテンプレートの GUID (グローバル一意識別子) または SID (セキュリティ識別子) を取得します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.AsyncResultEnumEnrollments.FingerPositions">
+            <summary>
+            <see cref="T:WinBiometricDotNet.FingerPosition"/> の配列を取得します。
+            </summary>
+        </member>
+        <member name="T:WinBiometricDotNet.AsyncResultEnumServiceProviders">
+            <summary>
+            <see cref="T:WinBiometricDotNet.AsyncResultEnumServiceProviders"/> クラスは <see cref="M:WinBiometricDotNet.WinBiometric.AsyncEnumServiceProviders(WinBiometricDotNet.Framework,WinBiometricDotNet.BiometricTypes)"/> への非同期呼び出しの結果を格納します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.AsyncResultEnumServiceProviders.ServiceProviders">
+            <summary>
+            <see cref="T:WinBiometricDotNet.BiometricServiceProvider"/> の配列を取得します。
+            </summary>
+        </member>
+        <member name="T:WinBiometricDotNet.AsyncResultGetEvent">
+            <summary>
+            <see cref="T:WinBiometricDotNet.AsyncResultGetEvent"/> クラスは監視するイベントの結果を格納します。
+            </summary>
+            <remarks>このクラスは現在サポートされていません。</remarks>
+        </member>
+        <member name="P:WinBiometricDotNet.AsyncResultGetEvent.EventType">
+            <summary>            
+            発生したサービス プロバイダ イベント通知の種類を示す値を取得します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.AsyncResultGetEvent.Parameter">
+            <summary>
+            イベント通知が発生したときにコールバック ルーチンへ送信されるステータス情報を含むデータを取得します。
+            </summary>
+        </member>
+        <member name="T:WinBiometricDotNet.AsyncResultGetProperty">
+            <summary>
+            <see cref="T:WinBiometricDotNet.AsyncResultGetProperty"/> クラスは <see cref="M:WinBiometricDotNet.WinBiometric.GetProperty(WinBiometricDotNet.Session,WinBiometricDotNet.PropertyType,WinBiometricDotNet.PropertyId,System.UInt32,WinBiometricDotNet.BiometricIdentity,WinBiometricDotNet.FingerPosition,System.Byte[]@)"/> への非同期呼び出しの結果を格納します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.AsyncResultGetProperty.Identity">
+            <summary>
+            識別子を含むデータを取得します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.AsyncResultGetProperty.FingerPosition">
+            <summary>
+            サブファクタを示す値を取得します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.AsyncResultGetProperty.PropertyBuffer">
+            <summary>
+            プロパティ値を含むバッファを取得します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.AsyncResultGetProperty.PropertyId">
+            <summary>
+            照会されたプロパティを示す値を取得します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.AsyncResultGetProperty.PropertyType">
+            <summary>
+            プロパティ情報のソースを示す値を取得します。
+            </summary>
+        </member>
+        <member name="T:WinBiometricDotNet.AsyncResultIdentify">
+            <summary>
+            <see cref="T:WinBiometricDotNet.AsyncResultIdentify"/> クラスは <see cref="M:WinBiometricDotNet.WinBiometric.Identify(WinBiometricDotNet.Session)"/> への非同期呼び出しの結果を格納します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.AsyncResultIdentify.Identity">
+            <summary>
+            バイオメトリックス サンプルを提供するユーザの GUID (グローバル一意識別子) または SID (セキュリティ識別子) を受け取るデータを取得します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.AsyncResultIdentify.FingerPosition">
+            <summary>
+            バイオメトリックス サンプルに関連付けられたサブファクタを受け取る値を取得します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.AsyncResultIdentify.RejectDetail">
+            <summary>
+            バイオメトリックス サンプルをキャプチャした際の失敗に関する追加情報を含む値を取得します。
+            </summary>
+        </member>
+        <member name="T:WinBiometricDotNet.AsyncResultParameter">
+            <summary>
+            非同期操作の結果を提供します。このクラスは抽象クラスです。
+            </summary>
+        </member>
+        <member name="T:WinBiometricDotNet.AsyncResultSetProperty">
+            <summary>
+            <see cref="T:WinBiometricDotNet.AsyncResultSetProperty"/> クラスは <see cref="M:WinBiometricDotNet.WinBiometric.SetAntiSpoofPolicyProperty(WinBiometricDotNet.Session,WinBiometricDotNet.PropertyType,WinBiometricDotNet.BiometricIdentity,WinBiometricDotNet.AntiSpoofPolicy)"/> への非同期呼び出しの結果を格納します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.AsyncResultSetProperty.Identity">
+            <summary>
+            プロパティに設定されたアカウントを示すデータを取得します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.AsyncResultSetProperty.FingerPosition">
+            <summary>
+            サブファクタを示す値を取得します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.AsyncResultSetProperty.PropertyBuffer">
+            <summary>
+            プロパティに設定された値を示すバッファを取得します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.AsyncResultSetProperty.PropertyId">
+            <summary>
+            設定されたプロパティを示す値を取得します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.AsyncResultSetProperty.PropertyType">
+            <summary>
+            設定されたプロパティの種類を示す値を取得します。
+            </summary>
+        </member>
+        <member name="T:WinBiometricDotNet.AsyncResultVerify">
+            <summary>
+            <see cref="T:WinBiometricDotNet.AsyncResultVerify"/> クラスは <see cref="M:WinBiometricDotNet.WinBiometric.Verify(WinBiometricDotNet.Session,WinBiometricDotNet.FingerPosition)"/> への非同期呼び出しの結果を格納します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.AsyncResultVerify.IsMatch">
+            <summary>
+            キャプチャしたサンプルが指定したユーザ識別子と一致したかどうかを示す値を取得します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.AsyncResultVerify.RejectDetail">
+            <summary>
+            バイオメトリックス サンプルをキャプチャした際の失敗に関する追加情報を含む値を取得します。
+            </summary>
+        </member>
+        <member name="T:WinBiometricDotNet.BiometricCapabilities">
+            <summary>
+            バイオメトリックス センサーの能力を指定します。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.BiometricCapabilities.Sensor">
+            <summary>
+            デバイスはバイオメトリックス データを収集可能です。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.BiometricCapabilities.Matching">
+            <summary>
+            デバイスは照合操作を実行可能です。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.BiometricCapabilities.Database">
+            <summary>
+            センサーはオンボード データベースを格納します。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.BiometricCapabilities.Proccessing">
+            <summary>            
+            デバイスはサンプルを処理しバイオメトリックス テンプレートに変換可能です。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.BiometricCapabilities.Encryption">
+            <summary>
+            デバイスはサンプルとテンプレートの暗号化をサポートします。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.BiometricCapabilities.Navigation">
+            <summary>
+            デバイスはナビゲーション デバイスとして利用可能です。いくつかのデバイス、ドライバーは、マウスのようなナビゲーション イベントへユーザーモード アプリケーションにより翻訳が可能なフォーマット内部にデータをキャプチャ可能です。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.BiometricCapabilities.Indicator">
+            <summary>
+            デバイスはオン/オフが可能なインジケ一夕ーを備えています。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.BiometricCapabilities.VirtualSensor">
+            <summary>
+            センサ アダプタはバイオメトリックス ハードウェアへの接続を管理します。
+            </summary>
+        </member>
+        <member name="T:WinBiometricDotNet.BiometricDatabase">
+            <summary>
+            <see cref="T:WinBiometricDotNet.BiometricDatabase"/> クラスはバイオメトリックス ストレージ アダプタの能力を表現します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.BiometricDatabase.BiometricFactor">
+            <summary>
+            データベース内に保存されたバイオメトリックス測定の種類を取得します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.BiometricDatabase.ConnectionString">
+            <summary>
+            データベースを識別するデータベース サーバーに送信される文字列の値を取得します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.BiometricDatabase.DatabaseFlag">
+            <summary>
+            データベースの特性についてのフラグを取得します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.BiometricDatabase.DatabaseId">
+            <summary>
+            データベースを識別する GUID (グローバル一意識別子) を取得します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.BiometricDatabase.DatabaseTypes">
+            <summary>
+            データベースの特性についての種別を取得します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.BiometricDatabase.DataFormat">
+            <summary>
+            データベース内のテンプレート フォーマットを識別する GUID (グローバル一意識別子) を取得します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.BiometricDatabase.FilePath">
+            <summary>
+            コンピュータ ディスク上に存在する場合、データベースのパスとファイル名を取得します。
+            </summary>
+        </member>
+        <member name="T:WinBiometricDotNet.BiometricIdentity">
+            <summary>
+            <see cref="T:WinBiometricDotNet.BiometricIdentity"/> クラスはバイオメトリックス テンプレートに関連付けられた識別値を格納します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.BiometricIdentity.Type">
+            <summary>
+            このクラスに格納された情報を識別情報のフォーマットを取得します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.BiometricIdentity.Sid">
+            <summary>
+            アカウントの SID (セキュリティ識別子) を格納する値を取得します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.BiometricIdentity.TemplateGuid">
+            <summary>
+            テンプレートを識別する 128 ビットの GUID (グローバル一意識別子) を取得します。
+            </summary>
+        </member>
+        <member name="T:WinBiometricDotNet.BiometricPoolType">
+            <summary>
+            <see cref="T:WinBiometricDotNet.BiometricPoolType"/> 列挙型はセッション内で使用されるバイオメトリックス装置のプールの種類を指定します。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.BiometricPoolType.Unknown">
+            <summary>
+            プールの種類は不明です。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.BiometricPoolType.System">
+            <summary>
+            サービス プロバイダに管理されるバイオメトリックス装置の共有コレクションを示します。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.BiometricPoolType.Private">
+            <summary>
+            呼び出し側に管理されるバイオメトリックス装置のコレクションを示します。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.BiometricPoolType.Unassigned">
+            <summary>
+            予約。
+            </summary>
+        </member>
+        <member name="T:WinBiometricDotNet.BiometricSensorSubType">
+            <summary>
+            <see cref="T:WinBiometricDotNet.BiometricSensorSubType"/> 列挙型はオンボード センサの能力を指定します。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.BiometricSensorSubType.Unknown">
+            <summary>
+            センサのサブタイプは不明です。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.BiometricSensorSubType.Swipe">
+            <summary>
+            センサは指紋のスワイプをサポートします。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.BiometricSensorSubType.Touch">
+            <summary>
+            センサは指紋のタッチをサポートします。
+            </summary>
+        </member>
+        <member name="T:WinBiometricDotNet.BiometricServiceProvider">
+            <summary>
+            <see cref="T:WinBiometricDotNet.BiometricServiceProvider"/> クラスはバイオメトリックス サービス プロバイダの能力を表現します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.BiometricServiceProvider.BiometricFactor">
+            <summary>
+            このデバイスが使用するバイオメトリックス測定の種類を取得します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.BiometricServiceProvider.Description">
+            <summary>
+            バイオメトリックス サービス プロバイダの詳細を取得します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.BiometricServiceProvider.Id">
+            <summary>
+            バイオメトリックス サービス プロバイダ コンポーネントを一意に識別する値取得します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.BiometricServiceProvider.Vendor">
+            <summary>
+            バイオメトリックス サービス プロバイダを提供するベンダの名称を取得します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.BiometricServiceProvider.Version">
+            <summary>
+            バイオメトリックス サービス プロバイダ コンポーネントのソフトウェア バージョンを取得します。
+            </summary>
+        </member>
+        <member name="T:WinBiometricDotNet.BiometricTypes">
+            <summary>
+            NISTIR 6529-A (米国標準技術局内部機関報告書 6529-A) によって定義された標準的なバイオメトリックスの種類を表現します。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.BiometricTypes.Mask">
+            <summary>
+            バイオメトリックス要素のサポートされた組み合わせを指定するビットマスクです。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.BiometricTypes.NoAvailable">
+            <summary>
+            利用可能なバイオメトリックスの種類がありません。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.BiometricTypes.Multiple">
+            <summary>
+            複数の種類が指定されています。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.BiometricTypes.FacialFeatures">
+            <summary>
+            バイオメトリックス センサーは顔特徴をキャプチャします。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.BiometricTypes.Voice">
+            <summary>
+            バイオメトリックス センサーは音声データをキャプチャします。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.BiometricTypes.Fingerprint">
+            <summary>
+            バイオメトリックス センサーは指紋データをキャプチャします。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.BiometricTypes.Iris">
+            <summary>
+            バイオメトリックス センサーは虹彩データをキャプチャします。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.BiometricTypes.Retina">
+            <summary>
+            バイオメトリックス センサーは網膜データをキャプチャします。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.BiometricTypes.HandGeometry">
+            <summary>
+            バイオメトリックス センサーは掌形データをキャプチャします。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.BiometricTypes.SignatureDynamics">
+            <summary>
+            バイオメトリックス センサーは動的署名をキャプチャします。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.BiometricTypes.KeystrokeDynamics">
+            <summary>
+            バイオメトリックス センサーはキー操作をキャプチャします。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.BiometricTypes.LipMovement">
+            <summary>
+            バイオメトリックス センサーはリップムーブメントをキャプチャします。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.BiometricTypes.ThermalFaceImage">
+            <summary>
+            バイオメトリックス センサーは顔面熱画像をキャプチャします。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.BiometricTypes.ThermalHandImage">
+            <summary>
+            バイオメトリックス センサーは掌熱画像をキャプチャします。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.BiometricTypes.Gait">
+            <summary>
+            バイオメトリックス センサーは歩行・歩容データをキャプチャします。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.BiometricTypes.Scent">
+            <summary>
+            バイオメトリックス センサーは臭跡データをキャプチャします。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.BiometricTypes.Dna">
+            <summary>
+            バイオメトリックス センサーは DNA (デオキシリボ核酸) データをキャプチャします。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.BiometricTypes.EarShape">
+            <summary>
+            バイオメトリックス センサーは耳情報をキャプチャします。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.BiometricTypes.FingerGeometry">
+            <summary>
+            バイオメトリックス センサーは指形データをキャプチャします。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.BiometricTypes.Palmprint">
+            <summary>
+            バイオメトリックス センサーは掌紋データをキャプチャします。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.BiometricTypes.VeinPattern">
+            <summary>
+            バイオメトリックス センサーは静脈パターンデータをキャプチャします。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.BiometricTypes.FootPrint">
+            <summary>
+            バイオメトリックス センサーは足紋データをキャプチャします。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.BiometricTypes.Other">
+            <summary>
+            サポートしているバイオメトリックス データは現時点で定義されていません。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.BiometricTypes.Password">
+            <summary>
+            バイオメトリックス センサーはパスワード データをキャプチャします。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.BiometricTypes.Any">
+            <summary>
+            バイオメトリックス センサーは任意のデータをキャプチャします。
+            </summary>
+        </member>
+        <member name="T:WinBiometricDotNet.BiometricUnit">
+            <summary>
+            <see cref="T:WinBiometricDotNet.BiometricUnit"/> クラスはバイオメトリックス装置の能力を表現します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.BiometricUnit.BiometricFactor">
+            <summary>
+            バイオメトリックス装置の種類を取得します
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.BiometricUnit.SensorSubType">
+            <summary>
+            オンボード センサの能力を取得します
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.BiometricUnit.UnitId">
+            <summary>
+            バイオメトリックス装置を識別する値を取得します
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.BiometricUnit.DeviceInstanceId">
+            <summary>
+            デバイス ID を取得します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.BiometricUnit.Description">
+            <summary>
+            バイオメトリックス装置の詳細を取得します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.BiometricUnit.Manufacturer">
+            <summary>
+            製造者の名称を取得します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.BiometricUnit.Model">
+            <summary>
+            バイオメトリックス装置のモデル番号を取得します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.BiometricUnit.SerialNumber">
+            <summary>
+            バイオメトリックス装置のシリアル番号を取得します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.BiometricUnit.FirmwareVersion">
+            <summary>
+            バイオメトリックス装置のメジャー及びマイナー バージョン番号を取得します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.BiometricUnit.Capabilities">
+            <summary>
+            バイオメトリックス センサの能力を取得します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.BiometricUnit.PoolType">
+            <summary>
+            バイオメトリックス装置のプールの種類を取得します。
+            </summary>
+        </member>
+        <member name="T:WinBiometricDotNet.BiometricUnitVersion">
+            <summary>
+            <see cref="T:WinBiometricDotNet.BiometricUnitVersion"/> クラスはバイオメトリックス サービス プロバイダ コンポーネントのソフトウェア バージョン番号を格納します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.BiometricUnitVersion.MajorVersion">
+            <summary>
+            メジャー バージョン番号を取得します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.BiometricUnitVersion.MinorVersion">
+            <summary>
+            マイナー バージョン番号を取得します。
+            </summary>
+        </member>
+        <member name="T:WinBiometricDotNet.CaptureEnrollResult">
+            <summary>
+            <see cref="T:WinBiometricDotNet.CaptureEnrollResult"/> クラスは <see cref="M:WinBiometricDotNet.WinBiometric.CaptureEnroll(WinBiometricDotNet.Session)"/> または <see cref="M:WinBiometricDotNet.WinBiometric.CaptureEnrollWithCallback(WinBiometricDotNet.Session)"/> から返ってきた結果を格納します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.CaptureEnrollResult.OperationStatus">
+            <summary>
+            キャプチャ操作から返ってきたエラーコードを取得します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.CaptureEnrollResult.RejectDetail">
+            <summary>
+            バイオメトリックス サンプルをキャプチャした際の失敗に関する追加情報を含む値を取得します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.CaptureEnrollResult.IsRequiredMoreData">
+            <summary>
+            登録操作が追加のバイオメトリックス サンプルを必要としているかどうかを示す値を取得します。
+            </summary>
+        </member>
+        <member name="T:WinBiometricDotNet.CaptureSample">
+            <summary>
+            <see cref="T:WinBiometricDotNet.CaptureSample"/> クラスは指紋サンプル データを格納します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.CaptureSample.Height">
+            <summary>
+            高さを取得します (ピクセル単位)。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.CaptureSample.Image">
+            <summary>
+            キャプチャした指紋または掌紋画像のピクセルデータを取得します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.CaptureSample.HorizontalImageResolution">
+            <summary>
+            キャプチャした指紋または掌紋画像の水平解像度を取得します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.CaptureSample.HorizontalScanResolution">
+            <summary>
+            スキャンの水平解像度を取得します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.CaptureSample.VerticalImageResolution">
+            <summary>
+            キャプチャした指紋または掌紋画像の垂直解像度を取得します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.CaptureSample.VerticalScanResolution">
+            <summary>
+            スキャンの垂直解像度を取得します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.CaptureSample.Width">
+            <summary>
+            幅を取得します (ピクセル単位)。
+            </summary>
+        </member>
+        <member name="T:WinBiometricDotNet.CaptureSampleEventArgs">
+            <summary>
+            <see cref="E:WinBiometricDotNet.WinBiometric.SampleCaptured"/> イベント ハンドラーのデータを提供します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.CaptureSampleEventArgs.Result">
+            <summary>
+            イベントの結果を表す値を取得します。
+            </summary>
+        </member>
+        <member name="T:WinBiometricDotNet.CaptureSampleResult">
+            <summary>
+            <see cref="T:WinBiometricDotNet.CaptureSampleResult"/> クラスは <see cref="M:WinBiometricDotNet.WinBiometric.CaptureSample(WinBiometricDotNet.Session)"/> または <see cref="M:WinBiometricDotNet.WinBiometric.CaptureSampleWithCallback(WinBiometricDotNet.Session)"/> から返ってきた結果を格納します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.CaptureSampleResult.Sample">
+            <summary>
+            サンプルを含むデータを取得します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.CaptureSampleResult.OperationStatus">
+            <summary>
+            キャプチャ操作から返ってきたエラーコードを取得します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.CaptureSampleResult.RejectDetail">
+            <summary>
+            バイオメトリックス サンプルをキャプチャした際の失敗に関する追加情報を含む値を取得します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.CaptureSampleResult.SampleSize">
+            <summary>
+            <see cref="P:WinBiometricDotNet.CaptureSampleResult.Sample"/> プロパティのバイト単位のサイズを含む値を取得します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.CaptureSampleResult.UnitId">
+            <summary>
+            サンプルを生成したバイオメトリックス装置の ID を含む値を取得します。
+            </summary>
+        </member>
+        <member name="T:WinBiometricDotNet.ChangeTypes">
+            <summary>
+            <see cref="T:WinBiometricDotNet.ChangeTypes"/> 列挙型はフレームワーク内で発生した変更の種類を識別します。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.ChangeTypes.Unit">
+            <summary>
+            バイオメトリックス装置がコンピュータに接続された、またはコンピュータから取り外されました。
+            </summary>
+        </member>
+        <member name="T:WinBiometricDotNet.Component">
+            <summary>
+            <see cref="T:WinBiometricDotNet.Component"/> 列挙型は使用されているアダプタの種類を指定します。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.Component.Sensor">
+            <summary>
+            センサ アダプタを示します。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.Component.Engine">
+            <summary>
+            エンジン アダプタを示します。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.Component.Storage">
+            <summary>
+            ストレージ アダプタを示します。
+            </summary>
+        </member>
+        <member name="T:WinBiometricDotNet.CredentialFormat">
+            <summary>
+            <see cref="T:WinBiometricDotNet.CredentialFormat"/> 列挙型はエンド ユーザの資格情報のフォーマットを指定します。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.CredentialFormat.Generic">
+            <summary>
+            パスワードは汎用的フォーマットです。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.CredentialFormat.Packed">
+            <summary>
+            パスワードは圧縮フォーマットです。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.CredentialFormat.Protected">
+            <summary>
+            パスワードの資格情報は CredProtect 関数によってラップされました。
+            </summary>
+        </member>
+        <member name="T:WinBiometricDotNet.CredentialState">
+            <summary>
+            <see cref="T:WinBiometricDotNet.CredentialState"/> 列挙型はエンド ユーザがバイオメトリックス データと関連付けられているかどうかを指定します。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.CredentialState.NotSet">
+            <summary>
+            資格情報はエンド ユーザに関連付けられています。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.CredentialState.Set">
+            <summary>
+            資格情報はエンド ユーザに関連付けられていません。
+            </summary>
+        </member>
+        <member name="T:WinBiometricDotNet.CredentialTypes">
+            <summary>
+            <see cref="T:WinBiometricDotNet.CredentialTypes"/> 列挙型は資格情報の種類をフィルタします。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.CredentialTypes.Password">
+            <summary>
+            パスワードの資格情報をフィルタします。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.CredentialTypes.All">
+            <summary>
+            全ての資格情報をフィルタします。
+            </summary>
+        </member>
+        <member name="T:WinBiometricDotNet.DatabaseFlags">
+            <summary>
+            <see cref="T:WinBiometricDotNet.DatabaseFlags"/> 列挙型はデータベースの特性を指定します。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.DatabaseFlags.Removable">
+            <summary>
+            データベースを含む記憶媒体はコンピュータから物理的に取り外すことができます。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.DatabaseFlags.Remote">
+            <summary>
+            データベースはリモート コンピュータ上に存在します。
+            </summary>
+        </member>
+        <member name="T:WinBiometricDotNet.DatabaseTypes">
+            <summary>
+            <see cref="T:WinBiometricDotNet.DatabaseTypes"/> 列挙型はデータベースの種類を指定します。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.DatabaseTypes.File">
+            <summary>
+            データベースはファイル内に格納されています。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.DatabaseTypes.DatabaseManagementSystem">
+            <summary>
+            データベースは Microsoft SQL Server のような外部のデータベース マネージメント システム (DBMS) コンポーネントによって管理されています。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.DatabaseTypes.OnChip">
+            <summary>
+            データベースはバイオメトリックス センサー上に存在します。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.DatabaseTypes.SmartCard">
+            <summary>
+            データベースはスマートカード上に存在します。
+            </summary>
+        </member>
+        <member name="T:WinBiometricDotNet.DataFlags">
+            <summary>
+            <see cref="T:WinBiometricDotNet.DataFlags"/> 列挙型は、キャプチャされたサンプルに適用される処理の種別を指定します。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.DataFlags.Privacy">
+            <summary>
+            データは暗号化されています。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.DataFlags.Integrity">
+            <summary>
+            データはデジタル署名されている、またはメッセージ認証コード (MAC) で保護されています。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.DataFlags.Signed">
+            <summary>
+            このフラグと <see cref="F:WinBiometricDotNet.DataFlags.Integrity"/> のフラグが設定されている場合、データは署名されています。このフラグが設定されず、<see cref="F:WinBiometricDotNet.DataFlags.Integrity"/> フラグが設定されている場合、メッセージ認証コード (MAC) がデータ上で計算されています。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.DataFlags.Raw">
+            <summary>
+            データはキャプチャ時のフォーマットのままです。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.DataFlags.Intermediate">
+            <summary>
+            データは RAW 形式ではなく、完全には処理されていません。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.DataFlags.Processed">
+            <summary>
+            データが処理されました。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.DataFlags.OptionMaskPresent">
+            <summary>
+            フラグマスクです。
+            </summary>
+            <remarks>このフラグは常に 1 です。</remarks>
+        </member>
+        <member name="T:WinBiometricDotNet.EnrollCapturedEventArgs">
+            <summary>
+            <see cref="E:WinBiometricDotNet.WinBiometric.EnrollCaptured"/> イベント ハンドラーのデータを提供します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.EnrollCapturedEventArgs.Result">
+            <summary>
+            イベントの結果を表す値を取得します。
+            </summary>
+        </member>
+        <member name="T:WinBiometricDotNet.EnrollCapturedHandler">
+            <summary>
+            <see cref="E:WinBiometricDotNet.WinBiometric.EnrollCaptured"/> イベントを処理するメソッドを表します。
+            </summary>
+            <param name="sender">イベントのソース。</param>
+            <param name="e"><see cref="T:WinBiometricDotNet.EnrollCapturedEventArgs"/> イベント データを格納します。</param>
+        </member>
+        <member name="T:WinBiometricDotNet.ErrorEvent">
+            <summary>
+            <see cref="T:WinBiometricDotNet.ErrorEvent"/> クラスは監視されている操作の成功または失敗を識別するデータを格納します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.ErrorEvent.ErrorCode">
+            <summary>
+            Windows Biometric Framework による演算の結果発生したエラーコードを取得します。
+            </summary>
+        </member>
+        <member name="T:WinBiometricDotNet.EventMonitoredEventArgs">
+            <summary>
+            <see cref="E:WinBiometricDotNet.WinBiometric.EventMonitored"/> イベント ハンドラーのデータを提供します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.EventMonitoredEventArgs.EventType">
+            <summary>
+            発生したサービス プロバイダ イベント通知の種類を示す値を取得します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.EventMonitoredEventArgs.OperationStatus">
+            <summary>
+            キャプチャ操作から返ってきたエラーコードを取得します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.EventMonitoredEventArgs.EventParameter">
+            <summary>
+            イベント通知が発生したときにコールバック ルーチンへ送信されるステータス情報を含むデータを取得します。
+            </summary>
+        </member>
+        <member name="T:WinBiometricDotNet.EventMonitoredHandler">
+            <summary>
+            <see cref="E:WinBiometricDotNet.WinBiometric.EventMonitored"/> イベントを処理するメソッドを表します。
+            </summary>
+            <param name="sender">イベントのソース。</param>
+            <param name="e"><see cref="T:WinBiometricDotNet.EventMonitoredEventArgs"/> イベント データを格納します。</param>
+        </member>
+        <member name="T:WinBiometricDotNet.EventParameter">
+            <summary>
+            <see cref="E:WinBiometricDotNet.WinBiometric.EventMonitored"/> からの結果を提供します。このクラスは抽象クラスです。
+            </summary>
+        </member>
+        <member name="T:WinBiometricDotNet.EventTypes">
+            <summary>
+            <see cref="T:WinBiometricDotNet.EventTypes"/> 列挙型は監視するサービス プロバイダのイベント通知の種類を指定します。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.EventTypes.Unclaimed">
+            <summary>
+            アプリケーションまたは現在フォーカスを持つウィンドウによって要求されなかった指のスワイプをセンサーが検知しました。Windows Biometric Framework は、指のスワイプが発生したことを示すコールバック関数を呼び出しますが、指紋の識別を行いません。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.EventTypes.UnclaimedIdentify">
+            <summary>
+            アプリケーションまたは現在フォーカスを持つウィンドウによって要求されなかった指のスワイプをセンサーが検知しました。Windows Biometric Framework は指紋の識別と処理の結果をコールバック関数に渡そうと試みます。
+            </summary>
+        </member>
+        <member name="T:WinBiometricDotNet.FingerPosition">
+            <summary>
+            <see cref="T:WinBiometricDotNet.FingerPosition"/> 列挙型は指の部位を数値で指定します。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.FingerPosition.Unknown">
+            <summary>
+            不明。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.FingerPosition.RightThumb">
+            <summary>
+            右手の親指。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.FingerPosition.RightIndex">
+            <summary>
+            右手の示指。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.FingerPosition.RightMiddle">
+            <summary>
+            右手の中指。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.FingerPosition.RightRing">
+            <summary>
+            右手の薬指。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.FingerPosition.RightLittle">
+            <summary>
+            右手の小指。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.FingerPosition.LeftThumb">
+            <summary>
+            左手の親指。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.FingerPosition.LeftIndex">
+            <summary>
+            左手の示指。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.FingerPosition.LeftMiddle">
+            <summary>
+            左手の中指。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.FingerPosition.LeftRing">
+            <summary>
+            左手の薬指。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.FingerPosition.LeftLittle">
+            <summary>
+            左手の小指。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.FingerPosition.RightSlap">
+            <summary>
+            右手の平面 4 指。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.FingerPosition.LeftSlap">
+            <summary>
+            左手の平面 4 指。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.FingerPosition.TwoThumbs">
+            <summary>
+            両親指。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.FingerPosition.UnspecifiedPosition01">
+            <summary>
+            不特定位置 01。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.FingerPosition.UnspecifiedPosition02">
+            <summary>
+            不特定位置 02。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.FingerPosition.UnspecifiedPosition03">
+            <summary>
+            不特定位置 03。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.FingerPosition.UnspecifiedPosition04">
+            <summary>
+            不特定位置 04。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.FingerPosition.UnspecifiedPosition05">
+            <summary>
+            不特定位置 05。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.FingerPosition.UnspecifiedPosition06">
+            <summary>
+            不特定位置 06。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.FingerPosition.UnspecifiedPosition07">
+            <summary>
+            不特定位置 07。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.FingerPosition.UnspecifiedPosition08">
+            <summary>
+            不特定位置 08。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.FingerPosition.UnspecifiedPosition09">
+            <summary>
+            不特定位置 09。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.FingerPosition.UnspecifiedPosition10">
+            <summary>
+            不特定位置 10。
+            </summary>
+        </member>
+        <member name="T:WinBiometricDotNet.Framework">
+            <summary>
+            バイオメトリックス フレームワークへのハンドルを表します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.Framework.Handle">
+            <summary>
+            ハントルへのポインタを取得します。
+            </summary>
+        </member>
+        <member name="T:WinBiometricDotNet.IdentifiedEventArgs">
+            <summary>
+            <see cref="E:WinBiometricDotNet.WinBiometric.Identified"/> イベント ハンドラーのデータを提供します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.IdentifiedEventArgs.Result">
+            <summary>
+            イベントの結果を表す値を取得します。
+            </summary>
+        </member>
+        <member name="T:WinBiometricDotNet.IdentifiedHandler">
+            <summary>
+            <see cref="E:WinBiometricDotNet.WinBiometric.Identified"/> イベントを処理するメソッドを表します。
+            </summary>
+            <param name="sender">イベントのソース。</param>
+            <param name="e"><see cref="T:WinBiometricDotNet.IdentifiedEventArgs"/> イベント データを格納します。</param>
+        </member>
+        <member name="T:WinBiometricDotNet.IdentifyResult">
+            <summary>
+            <see cref="T:WinBiometricDotNet.IdentifyResult"/> クラスは <see cref="M:WinBiometricDotNet.WinBiometric.Identify(WinBiometricDotNet.Session)"/> または <see cref="M:WinBiometricDotNet.WinBiometric.IdentifyWithCallback(WinBiometricDotNet.Session)"/> から返ってきた結果を格納します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.IdentifyResult.FingerPosition">
+            <summary>
+            バイオメトリックス サンプルに関連付けられたサブファクタを受け取る値を取得します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.IdentifyResult.Identity">
+            <summary>
+            バイオメトリックス サンプルを提供するユーザの GUID (グローバル一意識別子) または SID (セキュリティ識別子) を受け取るデータを取得します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.IdentifyResult.RejectDetail">
+            <summary>
+            バイオメトリックス サンプルをキャプチャした際の失敗に関する追加情報を含む値を取得します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.IdentifyResult.UnitId">
+            <summary>
+            本人確認の実行に使用されたバイオメトリックス装置を示す値を取得します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.IdentifyResult.OperationStatus">
+            <summary>
+            キャプチャ操作から返ってきたエラーコードを取得します。
+            </summary>
+        </member>
+        <member name="T:WinBiometricDotNet.IdentityType">
+            <summary>
+            <see cref="T:WinBiometricDotNet.IdentityType"/> 列挙型は <see cref="T:WinBiometricDotNet.BiometricIdentity"/> クラスに格納されている識別子情報のフォーマットを指定します。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.IdentityType.Null">
+            <summary>
+            テンプレートはどの ID にも関連付けられていません。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.IdentityType.WildCard">
+            <summary>
+            クラスは全てのテンプレート識別子に合致します。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.IdentityType.Guid">
+            <summary>
+            GUID (グローバル一意識別子) はテンプレートを識別します。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.IdentityType.Sid">
+            <summary>
+            アカウントの SID (セキュリティ識別子) はテンプレートを識別します。
+            </summary>
+        </member>
+        <member name="T:WinBiometricDotNet.LocateSensorEventArgs">
+            <summary>
+            <see cref="E:WinBiometricDotNet.WinBiometric.SensorLocated"/> イベント ハンドラーのデータを提供します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.LocateSensorEventArgs.OperationStatus">
+            <summary>
+            キャプチャ操作から返ってきたエラーコードを取得します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.LocateSensorEventArgs.UnitId">
+            <summary>
+            バイオメトリックス装置を示す値を取得します。
+            </summary>
+        </member>
+        <member name="T:WinBiometricDotNet.OperationType">
+            <summary>
+            <see cref="T:WinBiometricDotNet.OperationType"/> 列挙型は実行されている非同期操作の種類を指定します。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.OperationType.None">
+            <summary>            
+            識別できる操作はありません。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.OperationType.Open">
+            <summary>
+            バイオメトリックス セッションがオープンされました。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.OperationType.Close">
+            <summary>
+            バイオメトリックス セッションがクローズされました。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.OperationType.Verify">
+            <summary>
+            バイオメトリックス サンプルがユーザ識別子に対して照合されました。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.OperationType.Identify">
+            <summary>
+            バイオメトリックス サンプルがキャプチャされ既存のテンプレートと比較されました。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.OperationType.LocateSensor">
+            <summary>
+            バイオメトリックス装置の ID 番号が取得されました。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.OperationType.EnrollBegin">
+            <summary>
+            バイオメトリックス登録シーケンスが開始されました。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.OperationType.EnrollCapture">
+            <summary>
+            バイオメトリックス サンプルがキャプチャされテンプレートに追加されました。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.OperationType.EnrollCommit">
+            <summary>
+            保留中のバイオメトリックス テンプレートが確定されました。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.OperationType.EnrollDiscard">
+            <summary>
+            保留中のバイオメトリックス テンプレートが破棄されました。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.OperationType.EnumEnrollments">
+            <summary>
+            テンプレートに与えられたサブファクタが列挙されました。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.OperationType.DeleteTemplate">
+            <summary>
+            ストアからバイオメトリックス テンプレートが削除されました。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.OperationType.CaptureSample">
+            <summary>
+            バイオメトリックス サンプルがキャプチャされました。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.OperationType.GetProperty">
+            <summary>
+            バイオメトリックス セッション、装置またはテンプレートのプロパティが取得されました。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.OperationType.SetProperty">
+            <summary>
+            バイオメトリックス セッション、装置、テンプレートまたはアカウントのプロパティが設定されました。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.OperationType.GetEvent">
+            <summary>
+            未使用です。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.OperationType.LockUnit">
+            <summary>
+            セッションで排他的に利用するためにバイオメトリックス装置がロックされました。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.OperationType.UnlockUnit">
+            <summary>
+            バイオメトリックス装置上のセッションのロックが解放されました。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.OperationType.ControlUnit">
+            <summary>
+            コントロール装置上でベンダー定義の操作が実行されました。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.OperationType.ControlUnitPrivileged">
+            <summary>
+            コントロール装置上でベンダー定義の特権的な操作が実行されました。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.OperationType.OpenFramework">
+            <summary>
+            バイオメトリックス フレームワークへのハンドルがオープンされました。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.OperationType.CloseFramework">
+            <summary>
+            バイオメトリックス フレームワークへのハンドルがクローズされました。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.OperationType.EnumServiceProviders">
+            <summary>
+            インストールされているバイオメトリックス サービス プロバイダが列挙されました。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.OperationType.EnumBiometricUnits">
+            <summary>
+            接続されているバイオメトリックス装置が列挙されました。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.OperationType.EnumDatabases">
+            <summary>
+            登録されているデータベースが列挙されました。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.OperationType.UnitArrival">
+            <summary>
+            バイオメトリックス装置が生成されました。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.OperationType.UnitRemoval">
+            <summary>
+            バイオメトリックス装置は削除されました。
+            </summary>
+        </member>
+        <member name="T:WinBiometricDotNet.PolicySource">
+            <summary>
+            <see cref="T:WinBiometricDotNet.PolicySource"/> 列挙型はバイオメトリックス要素に対するスプーフィングの検出のために利用可能なポリシー情報のソースを指定します。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.PolicySource.Unknown">
+            <summary>
+            ポリシーのソースは不明です。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.PolicySource.Default">
+            <summary>
+            Windows Biometric Framework が提供する既定のポリシーです。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.PolicySource.Local">
+            <summary>
+            個々のユーザが「設定」アプリを使用して自身のアカウントに設定したポリシー。このポリシーは既定のポリシーを上書きします。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.PolicySource.Admin">
+            <summary>
+            エンタープライズ向けに IT 管理者が設定したグループ ポリシー。個々のユーザがこのポリシーを上書きすることはできません。
+            </summary>
+        </member>
+        <member name="T:WinBiometricDotNet.PropertyId">
+            <summary>
+            <see cref="T:WinBiometricDotNet.PropertyId"/> 列挙型は照会されるプロパティを指定します。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.PropertyId.SampleHint">
+            <summary>
+            テンプレートの登録を完了するために必要な良好なバイオメトリックス サンプルの最大数を推測します。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.PropertyId.ExtendedSensorInfo">
+            <summary>
+            特定のバイオメトリックス装置に接続されているセンサー コンポーネントの能力と属性についての拡張情報を格納します。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.PropertyId.ExtendedEngineInfo">
+            <summary>
+            特定のバイオメトリックス装置に接続されているエンジン コンポーネントの能力と属性についての拡張情報を格納します。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.PropertyId.ExtendedStorageInfo">
+            <summary>
+            特定のバイオメトリックス装置に接続されているストレージ コンポーネントの能力と属性についての拡張情報を格納します。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.PropertyId.ExtendedEnrollmentStatus">
+            <summary>
+            特定のバイオメトリックス装置における進行中の登録状況についての拡張情報を格納します。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.PropertyId.AntiSpoofPolicy">
+            <summary>
+            特定のユーザ アカウントに対するアンチ スプーフィング ポリシーの値を格納します。
+            </summary>
+        </member>
+        <member name="T:WinBiometricDotNet.PropertyType">
+            <summary>
+            <see cref="T:WinBiometricDotNet.PropertyType"/> 列挙型はプロパティ情報のソースを指定します。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.PropertyType.Session">
+            <summary>
+            プロパティを特定のバイオメトリックス セッションに適用します
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.PropertyType.Unit">
+            <summary>
+            プロパティを特定のバイオメトリックス テンプレートに適用します
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.PropertyType.Template">
+            <summary>
+            プロパティを特定のバイオメトリックス装置に適用します。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.PropertyType.Account">
+            <summary>
+            プロパティをバイオメトリックス登録を持つ特定のユーザ アカウントに適用します。
+            </summary>
+        </member>
+        <member name="T:WinBiometricDotNet.Purpose">
+            <summary>
+            <see cref="T:WinBiometricDotNet.Purpose"/> 列挙型はサンプルの使用目的を指定します。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.Purpose.NoPurposeAvailable">
+            <summary>
+            目的が指定されていません。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.Purpose.Verify">
+            <summary>
+            ユーザの識別子を照合します。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.Purpose.Identify">
+            <summary>
+            ユーザを識別します。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.Purpose.Enroll">
+            <summary>
+            ユーザを登録します。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.Purpose.EnrollForVerification">
+            <summary>
+            バイオメトリック サンプルをキャプチャし、そのサンプルが指定されたユーザの識別子に対応するかどうかを判断します。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.Purpose.EnrollForIdentification">
+            <summary>
+            バイオメトリッ クサンプルをキャプチャし、既存のバイオメトリック テンプレートと一致するかどうかを判断します。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.Purpose.Auidit">
+            <summary>
+            ロギングや表示に使用できる追加情報です。
+            </summary>
+            <remarks>この値は、入力時にはすべての関数で無視されます。出力時には、バイオメトリック ユニットのみがサポートしており、<see cref="M:WinBiometricDotNet.WinBiometric.CaptureSample(WinBiometricDotNet.Session,WinBiometricDotNet.Purpose,WinBiometricDotNet.DataFlags)"/> 関数の Flags パラメータに WINBIO_DATA_FLAG_RAW を指定した場合にのみ利用可能です。</remarks>
+        </member>
+        <member name="T:WinBiometricDotNet.RejectDetail">
+            <summary>
+            <see cref="T:WinBiometricDotNet.RejectDetail"/> 列挙型はバイオメトリックス指紋キャプチャまたは識別処理が成功しなかった理由を指定します。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.RejectDetail.FingerprintTooHigh">
+            <summary>
+            指のスキャンが高すぎる位置から開始されました。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.RejectDetail.FingerprintTooLow">
+            <summary>
+            指のスキャンが低すぎる位置から開始されました。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.RejectDetail.FingerprintTooLeft">
+            <summary>
+            スキャン中、指が左端にずれていました。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.RejectDetail.FingerprintTooRight">
+            <summary>
+            スキャン中、指が右端にずれていました。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.RejectDetail.FingerprintTooFast">
+            <summary>
+            センサーをスワイプする指が速すぎました
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.RejectDetail.FingerprintTooSlow">
+            <summary>
+            センサーをスワイプする指が遅すぎました。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.RejectDetail.FingerprintPoorQuality">
+            <summary>
+            スキャン品質が不足しています。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.RejectDetail.FingerprintTooSkewed">
+            <summary>
+            指がセンサーを真っ直ぐに通過しませんでした。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.RejectDetail.FingerprintTooShort">
+            <summary>
+            スキャンされた指が不十分です。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.RejectDetail.FingerprintMergeFailure">
+            <summary>
+            指紋キャプチャを組み合わせることができませんでした。
+            </summary>
+        </member>
+        <member name="T:WinBiometricDotNet.Runtime.InteropServices.Marshal">
+            <summary>
+            アンマネージ コードを扱うときに使用できるさまざまなメソッドを提供します。これらのメソッドを使用すると、マネージ型からアンマネージ型への変換などができます。
+            </summary>
+        </member>
+        <member name="M:WinBiometricDotNet.Runtime.InteropServices.Marshal.GetWinBiometricExceptionFromHR(System.Int32)">
+            <summary>
+            指定した HRESULT エラー コードを対応する <see cref="T:WinBiometricDotNet.WinBiometricException"/> オブジェクトに変換します。
+            </summary>
+            <param name="errorCode">変換される HRESULT。</param>
+            <returns>変換後の HRESULT を表すオブジェクト。</returns>
+        </member>
+        <member name="M:WinBiometricDotNet.Runtime.InteropServices.Marshal.PtrToAsyncResult(System.IntPtr)">
+            <summary>
+            ウィンドウ メッセージの LPARAM 値から <see cref="T:WinBiometricDotNet.AsyncResult"/> オブジェクトにデータをマーシャリングします。
+            </summary>
+            <param name="ptr">ウィンドウ メッセージの LPARAM 値。</param>
+            <returns><see cref="T:WinBiometricDotNet.AsyncResult"/>。</returns>
+            <remarks>このメソッドから制御が戻るときに、<paramref name="ptr"/> は解放されます。</remarks>
+        </member>
+        <member name="T:WinBiometricDotNet.SampleCapturedHandler">
+            <summary>
+            <see cref="E:WinBiometricDotNet.WinBiometric.SampleCaptured"/> イベントを処理するメソッドを表します。
+            </summary>
+            <param name="sender">イベントのソース。</param>
+            <param name="e"><see cref="T:WinBiometricDotNet.CaptureSampleEventArgs"/> イベント データを格納します。</param>
+        </member>
+        <member name="T:WinBiometricDotNet.SensorLocatedHandler">
+            <summary>
+            <see cref="E:WinBiometricDotNet.WinBiometric.SensorLocated"/> イベントを処理するメソッドを表します。
+            </summary>
+            <param name="sender">イベントのソース。</param>
+            <param name="e"><see cref="T:WinBiometricDotNet.LocateSensorEventArgs"/> イベント データを格納します。</param>
+        </member>
+        <member name="T:WinBiometricDotNet.SensorStatus">
+            <summary>
+            <see cref="T:WinBiometricDotNet.SensorStatus"/> 列挙型はキャプチャ発生後のセンサーの状態を指定します。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.SensorStatus.Accept">
+            <summary>
+            センサーはキャプチャ操作が正常に完了しました。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.SensorStatus.Reject">
+            <summary>
+            センサーは直前のキャプチャ操作を拒絶しました。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.SensorStatus.Ready">
+            <summary>
+            センサーはデータをキャプチャする準備ができています。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.SensorStatus.Busy">
+            <summary>
+            センサーはビジーまたはデータをキャプチャできない状態です。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.SensorStatus.NotCalibrated">
+            <summary>
+            センサーはデータの収集モードに入る前にキャリブレーションが必要です。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.SensorStatus.Failure">
+            <summary>
+            センサ デバイスが故障しました。
+            </summary>
+        </member>
+        <member name="T:WinBiometricDotNet.Session">
+            <summary>
+            バイオメトリック サービス プロバイダと 1 つ以上のバイオメトリック装置へ接続するセッション ハンドルを表します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.Session.Handle">
+            <summary>
+            セッション ハンドルへのポインタを取得します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.Session.IsAsynchronous">
+            <summary>
+            セッション ハンドルが非同期関数によって生成されたかどうかを示す値を取得します。
+            </summary>
+        </member>
+        <member name="T:WinBiometricDotNet.SettingSourceType">
+            <summary>
+            <see cref="T:WinBiometricDotNet.SettingSourceType"/> 列挙型は Windows Biometric Framework が現在有効かどうかを決定します。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.SettingSourceType.Invalid">
+            <summary>
+            設定が不正です。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.SettingSourceType.Default">
+            <summary>
+            設定はビルトイン ポリシーに由来します。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.SettingSourceType.Policy">
+            <summary>
+            設定はグループ ポリシーによって作成されました。
+            </summary>
+        </member>
+        <member name="F:WinBiometricDotNet.SettingSourceType.Local">
+            <summary>
+            設定はローカル コンピュータのレジストリに由来します。
+            </summary>
+        </member>
+        <member name="T:WinBiometricDotNet.UnclaimedEvent">
+            <summary>
+            <see cref="T:WinBiometricDotNet.UnclaimedEvent"/> クラスはバイオメトリックス サンプル キャプチャのイベントを格納します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.UnclaimedEvent.RejectDetail">
+            <summary>
+            バイオメトリックス サンプルをキャプチャした際の失敗に関する追加情報を含む値を取得します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.UnclaimedEvent.UnidId">
+            <summary>
+            サンプルを生成したバイオメトリックス装置を取得します。
+            </summary>
+        </member>
+        <member name="T:WinBiometricDotNet.UnclaimedIdentifyEvent">
+            <summary>
+            <see cref="T:WinBiometricDotNet.UnclaimedIdentifyEvent"/> クラスはバイオメトリックス サンプル キャプチャと本人確認のイベントを格納します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.UnclaimedIdentifyEvent.FingerPosition">
+            <summary>
+            バイオメトリックス サンプルに関連付けられたサブファクタを示す値を取得します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.UnclaimedIdentifyEvent.Identity">
+            <summary>
+            バイオメトリックス サンプルを提供するユーザの GUID (グローバル一意識別子) または SID (セキュリティ識別子) を含むデータを取得します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.UnclaimedIdentifyEvent.RejectDetail">
+            <summary>
+            バイオメトリックス サンプルをキャプチャした際の失敗に関する追加情報を含む値を取得します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.UnclaimedIdentifyEvent.UnidId">
+            <summary>
+            サンプルを生成したバイオメトリックス装置を取得します。
+            </summary>
+        </member>
+        <member name="T:WinBiometricDotNet.VerifyEventArgs">
+            <summary>
+            <see cref="E:WinBiometricDotNet.WinBiometric.Verified"/> イベント ハンドラーのデータを提供します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.VerifyEventArgs.Result">
+            <summary>
+            イベントの結果を表す値を取得します。
+            </summary>
+        </member>
+        <member name="T:WinBiometricDotNet.VerifyHandler">
+            <summary>
+            <see cref="E:WinBiometricDotNet.WinBiometric.Verified"/> イベントを処理するメソッドを表します。
+            </summary>
+            <param name="sender">イベントのソース。</param>
+            <param name="e"><see cref="T:WinBiometricDotNet.VerifyEventArgs"/> イベント データを格納します。</param>
+        </member>
+        <member name="T:WinBiometricDotNet.VerifyResult">
+            <summary>
+            <see cref="T:WinBiometricDotNet.VerifyResult"/> クラスは <see cref="M:WinBiometricDotNet.WinBiometric.Verify(WinBiometricDotNet.Session,WinBiometricDotNet.FingerPosition)"/> または <see cref="M:WinBiometricDotNet.WinBiometric.VerifyWithCallback(WinBiometricDotNet.Session,WinBiometricDotNet.FingerPosition)"/> から返ってきた結果を格納します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.VerifyResult.IsMatch">
+            <summary>
+            キャプチャしたサンプルが指定したユーザ識別子と一致したかどうかを示す値を取得します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.VerifyResult.OperationStatus">
+            <summary>
+            キャプチャ操作から返ってきたエラーコードを取得します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.VerifyResult.RejectDetail">
+            <summary>
+            バイオメトリックス サンプルをキャプチャした際の失敗に関する追加情報を含む値を取得します。
+            </summary>
+        </member>
+        <member name="P:WinBiometricDotNet.VerifyResult.UnitId">
+            <summary>
+            照合を実行したバイオメトリックス装置を示す値を取得します。
+            </summary>
+        </member>
+        <member name="T:WinBiometricDotNet.WinBiometric">
+            <summary>
+            Windows Biometric Framework が公開するインターフェイスを実行する機能を提供します。
+            </summary>
+        </member>
+        <member name="E:WinBiometricDotNet.WinBiometric.AsyncCompleted">
+            <summary>
+            セッション ハンドルを使用して開始された操作が完了したときに発生します。
+            </summary>
+        </member>
+        <member name="E:WinBiometricDotNet.WinBiometric.EnrollCaptured">
+            <summary>
+            キャプチャ操作が成功または失敗したときに発生します。
+            </summary>
+        </member>
+        <member name="E:WinBiometricDotNet.WinBiometric.EventMonitored">
+            <summary>
+            Windows Biometric Framework から送信されたイベント通知を受信したときに発生します。
+            </summary>
+        </member>
+        <member name="E:WinBiometricDotNet.WinBiometric.Identified">
+            <summary>
+            本人確認が成功または失敗したときに発生します。
+            </summary>
+        </member>
+        <member name="E:WinBiometricDotNet.WinBiometric.SampleCaptured">
+            <summary>
+            キャプチャ操作が成功または失敗したときに発生します。
+            </summary>
+        </member>
+        <member name="E:WinBiometricDotNet.WinBiometric.SensorLocated">
+            <summary>
+            センサ探索が成功または失敗したときに発生します
+            </summary>
+        </member>
+        <member name="E:WinBiometricDotNet.WinBiometric.Verified">
+            <summary>
+            照合が成功または失敗したときに発生します。
+            </summary>
+        </member>
+        <member name="M:WinBiometricDotNet.WinBiometric.AcquireFocus">
+            <summary>
+            ウィンドウのフォーカスを取得します。
+            </summary>
+        </member>
+        <member name="M:WinBiometricDotNet.WinBiometric.AsyncEnumBiometricUnits(WinBiometricDotNet.Framework,WinBiometricDotNet.BiometricTypes)">
+            <summary>
+            入力したバイオメトリックスの種類に合致する、接続されている全てのバイオメトリックス装置を非同期に列挙します。
+            </summary>
+            <param name="framework">バイオメトリックス フレームワークへのハンドル。</param>
+            <param name="biometricTypes">列挙されるバイオメトリックス装置を示す <see cref="T:WinBiometricDotNet.BiometricTypes"/> フラグのビットマスク。</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="framework"/> パラメータが null です。</exception>
+        </member>
+        <member name="M:WinBiometricDotNet.WinBiometric.AsyncEnumDatabases(WinBiometricDotNet.Framework,WinBiometricDotNet.BiometricTypes)">
+            <summary>
+            指定したバイオメトリックスの種類に合致する、全ての登録済みデータベースを非同期に列挙します。
+            </summary>
+            <param name="framework">バイオメトリックス フレームワークへのハンドル。</param>
+            <param name="biometricTypes">列挙されるバイオメトリックス データベースの種類を示す <see cref="T:WinBiometricDotNet.BiometricTypes"/> フラグのビットマスク。</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="framework"/> パラメータが null です。</exception>
+        </member>
+        <member name="M:WinBiometricDotNet.WinBiometric.AsyncEnumServiceProviders(WinBiometricDotNet.Framework,WinBiometricDotNet.BiometricTypes)">
+            <summary>
+            インストールされているバイオメトリックス サービス プロバイダについての情報を非同期に返します。
+            </summary>
+            <param name="framework">バイオメトリックス フレームワークへのハンドル。</param>
+            <param name="biometricTypes">列挙されるバイオメトリックス サービス プロバイダの種類を示す <see cref="T:WinBiometricDotNet.BiometricTypes"/> フラグのビットマスク。</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="framework"/> パラメータが null です。</exception>
+        </member>
+        <member name="M:WinBiometricDotNet.WinBiometric.AsyncMonitorFrameworkChanges(WinBiometricDotNet.Framework,WinBiometricDotNet.ChangeTypes)">
+            <summary>
+            バイオメトリックス フレームワークに対する変更の非同期監視を開始します。
+            </summary>
+            <param name="framework">バイオメトリックス フレームワークへのハンドル。</param>
+            <param name="changeType">非同期通知を生成するイベントの種類を示す <see cref="T:WinBiometricDotNet.ChangeTypes"/> フラグのビットマスク。</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="framework"/> パラメータが null です。</exception>
+        </member>
+        <member name="M:WinBiometricDotNet.WinBiometric.AsyncOpenFramework(System.IntPtr)">
+            <summary>
+            非同期にバイオメトリックス フレームワークのハンドルをオープンします。
+            </summary>
+            <param name="userData">呼び出し側で与えられたバッファ。</param>
+        </member>
+        <member name="M:WinBiometricDotNet.WinBiometric.AsyncOpenFramework(System.IntPtr,System.UInt32)">
+            <summary>
+            非同期にバイオメトリックス フレームワークのハンドルをオープンします。
+            </summary>
+            <param name="targetWindow">完了通知を受け取るウィンドウのハンドル。</param>
+            <param name="messageCode">完了通知を表すためにフレームワークが送信するウィンドウ メッセージのコード。</param>
+        </member>
+        <member name="M:WinBiometricDotNet.WinBiometric.AsyncOpenSession(System.IntPtr)">
+            <summary>
+            非同期にバイオメトリックス サービス プロバイダと 1 つ以上のバイオメトリック装置へ接続します。
+            </summary>
+            <param name="userData">呼び出し側で与えられたバッファ。</param>
+        </member>
+        <member name="M:WinBiometricDotNet.WinBiometric.AsyncOpenSession(System.IntPtr,System.UInt32)">
+            <summary>
+            非同期にバイオメトリックス サービス プロバイダと 1 つ以上のバイオメトリック装置へ接続します。
+            </summary>
+            <param name="targetWindow">完了通知を受け取るウィンドウのハンドル。</param>
+            <param name="messageCode">完了通知を表すためにフレームワークが送信するウィンドウ メッセージのコード。</param>
+        </member>
+        <member name="M:WinBiometricDotNet.WinBiometric.BeginEnroll(WinBiometricDotNet.Session,WinBiometricDotNet.FingerPosition,System.UInt32)">
+            <summary>
+            バイオメトリックス登録シーケンスを開始し、空のバイオメトリックス テンプレートを作成します。
+            </summary>
+            <param name="session">オープンされたバイオメトリックス セッションを識別する <see cref="T:WinBiometricDotNet.Session"/>。</param>
+            <param name="position">登録につていの追加情報を提供する <see cref="T:WinBiometricDotNet.FingerPosition"/>。</param>
+            <param name="unitId">バイオメトリックス装置を識別する値。</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="session"/> パラメータが null です。</exception>
+        </member>
+        <member name="M:WinBiometricDotNet.WinBiometric.Cancel(WinBiometricDotNet.Session)">
+            <summary>
+            指定したセッションの保留中の全ての操作をキャンセルします。
+            </summary>
+            <param name="session">オープンされたバイオメトリックス セッションを識別する <see cref="T:WinBiometricDotNet.Session"/>。</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="session"/> パラメータが null です。</exception>
+        </member>
+        <member name="M:WinBiometricDotNet.WinBiometric.CaptureEnroll(WinBiometricDotNet.Session)">
+            <summary>
+            バイオメトリックス サンプルをキャプチャし、テンプレートに追加します。
+            </summary>
+            <param name="session">オープンされたバイオメトリックス セッションを識別する <see cref="T:WinBiometricDotNet.Session"/>。</param>
+            <returns><see cref="T:WinBiometricDotNet.CaptureEnrollResult"/>。</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="session"/> パラメータが null です。</exception>
+        </member>
+        <member name="M:WinBiometricDotNet.WinBiometric.CaptureEnrollWithCallback(WinBiometricDotNet.Session)">
+            <summary>
+            非同期にバイオメトリックス サンプルをキャプチャし、テンプレートに追加します。
+            </summary>
+            <param name="session">オープンされたバイオメトリックス セッションを識別する <see cref="T:WinBiometricDotNet.Session"/>。</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="session"/> パラメータが null です。</exception>
+        </member>
+        <member name="M:WinBiometricDotNet.WinBiometric.CaptureSample(WinBiometricDotNet.Session)">
+            <summary>
+            バイオメトリックス サンプルをキャプチャし、RAW または処理済みのデータで バイオメトリックス情報レコード (BIR) を埋めます。
+            </summary>
+            <param name="session">オープンされたバイオメトリックス セッションを識別する <see cref="T:WinBiometricDotNet.Session"/>。</param>
+            <returns><see cref="T:WinBiometricDotNet.CaptureSampleResult"/>。</returns>
+            <param name="purpose">サンプルの使用目的を指定する <see cref="T:WinBiometricDotNet.Purpose"/> ビットマスク。</param>
+            <param name="flags">キャプチャしたサンプルに適用される処理の種別を指定する <see cref="T:WinBiometricDotNet.DataFlags"/>。</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="session"/> パラメータが null です。</exception>
+        </member>
+        <member name="M:WinBiometricDotNet.WinBiometric.CaptureSampleWithCallback(WinBiometricDotNet.Session)">
+            <summary>
+            非同期にバイオメトリックス サンプルをキャプチャし、バイオメトリックス情報レコード (BIR) 内の RAW または処理済みのデータを返します。
+            </summary>
+            <param name="session">オープンされたバイオメトリックス セッションを識別する <see cref="T:WinBiometricDotNet.Session"/>。</param>
+            <param name="purpose">サンプルの使用目的を指定する <see cref="T:WinBiometricDotNet.Purpose"/> ビットマスク。</param>
+            <param name="flags">キャプチャしたサンプルに適用される処理の種別を指定する <see cref="T:WinBiometricDotNet.DataFlags"/>。</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="session"/> パラメータが null です。</exception>
+        </member>
+        <member name="M:WinBiometricDotNet.WinBiometric.CloseFramework(WinBiometricDotNet.Framework)">
+            <summary>
+            以前開いたフレームワークのハンドルをクローズします。
+            </summary>
+            <param name="framework">バイオメトリックス フレームワークへのハンドル。</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="framework"/> パラメータが null です。</exception>
+        </member>
+        <member name="M:WinBiometricDotNet.WinBiometric.CloseSession(WinBiometricDotNet.Session)">
+            <summary>
+            バイオメトリックスのセッションをクローズし、関連付けられたリソースを解放します。
+            </summary>
+            <param name="session">オープンされたバイオメトリックス セッションを識別する <see cref="T:WinBiometricDotNet.Session"/>。</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="session"/> パラメータが null です。</exception>
+        </member>
+        <member name="M:WinBiometricDotNet.WinBiometric.CommitEnroll(WinBiometricDotNet.Session)">
+            <summary>
+            Finalizes a pending biometric template and saves it to the database associated with the biometric unit used for enrollment.
+            </summary>
+            <param name="session">オープンされたバイオメトリックス セッションを識別する <see cref="T:WinBiometricDotNet.Session"/>。</param>
+            <returns><see cref="T:WinBiometricDotNet.BiometricIdentity"/>。</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="session"/> パラメータが null です。</exception>
+        </member>
+        <member name="M:WinBiometricDotNet.WinBiometric.ControlUnit(WinBiometricDotNet.Session,System.UInt32,WinBiometricDotNet.Component,System.UInt32,System.Byte[],System.Byte[],System.IntPtr@,System.UInt32@)">
+            <summary>
+            コントロール装置上でベンダー定義の操作の実行を呼び出し側に許可します。
+            </summary>
+            <param name="session">オープンされたバイオメトリックス セッションを識別する <see cref="T:WinBiometricDotNet.Session"/>。</param>
+            <param name="unitId">ロックを解放するバイオメトリックス装置を識別する値。</param>
+            <param name="component">操作を実行したバイオメトリックス装置内のコンポーネントを示す値。</param>
+            <param name="controlCode">バイオメトリックス装置によって認識されたベンダ定義のコードを示す値。</param>
+            <param name="sendBuffer">コンポーネントによってアダプタに送信されたコントロール情報を含むバッファ。</param>
+            <param name="receiveBuffer"><paramref name="component"/> パラメータで指定されたアダプタに送信された情報を受け取るバッファ。</param>
+            <param name="receiveDataSize"><paramref name="receiveBuffer"/> パラメータで指定されたバッファに書き込まれたサイズ (バイト単位)。</param>
+            <param name="operationStatus">コントロール操作の結果を示すベンダ定義のステータス コードを示す値。</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="session"/>、<paramref name="sendBuffer"/> または <paramref name="receiveBuffer"/> パラメータが null です。</exception>
+        </member>
+        <member name="M:WinBiometricDotNet.WinBiometric.ControlUnitPrivileged(WinBiometricDotNet.Session,System.UInt32,WinBiometricDotNet.Component,System.UInt32,System.Byte[],System.Byte[],System.IntPtr@,System.UInt32@)">
+            <summary>
+            コントロール装置上でベンダー定義の特権的な操作の実行を呼び出し側に許可します。
+            </summary>
+            <param name="session">オープンされたバイオメトリックス セッションを識別する <see cref="T:WinBiometricDotNet.Session"/>。</param>
+            <param name="unitId">ロックを解放するバイオメトリックス装置を識別する値。</param>
+            <param name="component">操作を実行したバイオメトリックス装置内のコンポーネントを示す値。</param>
+            <param name="controlCode">バイオメトリックス装置によって認識されたベンダ定義のコードを示す値。</param>
+            <param name="sendBuffer">コンポーネントによってアダプタに送信されたコントロール情報を含むバッファ。</param>
+            <param name="receiveBuffer"><paramref name="component"/> パラメータで指定されたアダプタに送信された情報を受け取るバッファ。</param>
+            <param name="receiveDataSize"><paramref name="receiveBuffer"/> パラメータで指定されたバッファに書き込まれたサイズ (バイト単位)。</param>
+            <param name="operationStatus">コントロール操作の結果を示すベンダ定義のステータス コードを示す値。</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="session"/>、<paramref name="sendBuffer"/> または <paramref name="receiveBuffer"/> パラメータが null です。</exception>
+        </member>
+        <member name="M:WinBiometricDotNet.WinBiometric.DeleteTemplate(WinBiometricDotNet.Session,System.UInt32,WinBiometricDotNet.BiometricIdentity,WinBiometricDotNet.FingerPosition)">
+            <summary>
+            テンプレート ストアからバイオメトリックス テンプレートを削除します。
+            </summary>
+            <param name="session">オープンされたバイオメトリックス セッションを識別する <see cref="T:WinBiometricDotNet.Session"/>。</param>
+            <param name="unitId">テンプレートが位置するバイオメトリックス装置を識別する値。</param>
+            <param name="identity">削除されるテンプレートの GUID (グローバル一意識別子) または SID (セキュリティ識別子) を含むデータ。</param>
+            <param name="position">削除されるテンプレートについての追加情報を提供する値。</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="session"/> または <paramref name="identity"/> パラメータが null です。</exception>
+        </member>
+        <member name="M:WinBiometricDotNet.WinBiometric.DiscardEnroll(WinBiometricDotNet.Session)">
+            <summary>
+            バイオメトリックス登録シーケンスを終了し、保留中のバイオメトリックス テンプレートを破棄します。
+            </summary>
+            <param name="session">オープンされたバイオメトリックス セッションを識別する <see cref="T:WinBiometricDotNet.Session"/>。</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="session"/> パラメータが null です。</exception>
+        </member>
+        <member name="M:WinBiometricDotNet.WinBiometric.EnumBiometricDatabases(WinBiometricDotNet.BiometricTypes)">
+            <summary>
+            指定したバイオメトリックスの種類に合致する、全ての登録済みデータベースを列挙します。
+            </summary>
+            <param name="biometricTypes">列挙されるバイオメトリックス データベースの種類を示す <see cref="T:WinBiometricDotNet.BiometricTypes"/> フラグのビットマスク。</param>
+            <returns><see cref="T:WinBiometricDotNet.BiometricUnit"/> の列挙可能なコレクション。</returns>
+        </member>
+        <member name="M:WinBiometricDotNet.WinBiometric.EnumBiometricUnits(WinBiometricDotNet.BiometricTypes)">
+            <summary>
+            入力したバイオメトリックスの種類に合致する、接続されている全てのバイオメトリックス装置に列挙します。
+            </summary>
+            <param name="biometricTypes">列挙されるバイオメトリックス装置を示す <see cref="T:WinBiometricDotNet.BiometricTypes"/> フラグのビットマスク。</param>
+            <returns><see cref="T:WinBiometricDotNet.BiometricDatabase"/> の列挙可能なコレクション。</returns>
+        </member>
+        <member name="M:WinBiometricDotNet.WinBiometric.EnumEnrollments(WinBiometricDotNet.Session,System.UInt32)">
+            <summary>
+            指定した識別子とバイオメトリックス装置に登録されているバイオメトリックス サブファクタを取得します。
+            </summary>
+            <param name="session">オープンされたバイオメトリックス セッションを識別する <see cref="T:WinBiometricDotNet.Session"/>。</param>
+            <param name="unitId">テンプレートが位置するバイオメトリックス装置を識別する値。</param>
+            <returns><see cref="T:WinBiometricDotNet.FingerPosition"/> の列挙可能なコレクション。</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="session"/> パラメータが null です。</exception>
+        </member>
+        <member name="M:WinBiometricDotNet.WinBiometric.EnumServiceProviders(WinBiometricDotNet.BiometricTypes)">
+            <summary>
+            インストールされているバイオメトリックス サービス プロバイダについての情報を取得します。
+            </summary>
+            <param name="biometricTypes">列挙されるバイオメトリックス サービス プロバイダの種類を示す <see cref="T:WinBiometricDotNet.BiometricTypes"/> フラグのビットマスク。</param>
+            <returns><see cref="T:WinBiometricDotNet.BiometricServiceProvider"/> の列挙可能なコレクション。</returns>
+        </member>
+        <member name="M:WinBiometricDotNet.WinBiometric.GetCredentialState(WinBiometricDotNet.BiometricIdentity,WinBiometricDotNet.CredentialTypes)">
+            <summary>
+            指定したユーザに対して資格情報が設定されているかどうかを示す値を取得します。
+            </summary>
+            <param name="identity">照会される資格情報に対するユーザ アカウントの SID (セキュリティ識別子) を含むデータ。</param>
+            <param name="credentialType">資格情報の種類を示す値。</param>
+            <returns>ユーザの資格情報が設定されているかどうかを示す値。</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="identity"/> パラメータが null です。</exception>
+        </member>
+        <member name="M:WinBiometricDotNet.WinBiometric.GetDomainLogonSetting(System.Boolean@,WinBiometricDotNet.SettingSourceType@)">
+            <summary>
+            バイオメトリックス情報を利用してドメインへユーザがログオン可能かどうかを示す値を取得します。            
+            </summary>
+            <param name="value">このメソッドから制御が戻るときに、バイオメトリックス ドメイン ログオンが有効かどうかを示す値が格納されます。</param>
+            <param name="source">このメソッドから制御が戻るときに、設定ソースを示す値が格納されます。</param>
+        </member>
+        <member name="M:WinBiometricDotNet.WinBiometric.GetEnabledSetting(System.Boolean@,WinBiometricDotNet.SettingSourceType@)">
+            <summary>
+            Retrieves a value that specifies whether the Windows Biometric Framework is currently enabled.
+            </summary>
+            <param name="value">このメソッドから制御が戻るときに、現在 Windows Biometric Framework が有効かどうかを示す値が格納されます。</param>
+            <param name="source">このメソッドから制御が戻るときに、設定ソースを示す値が格納されます。</param>
+        </member>
+        <member name="M:WinBiometricDotNet.WinBiometric.GetEnrolledFactors(WinBiometricDotNet.BiometricIdentity)">
+            <summary>
+            コンピュータ上で指定したユーザが保有するバイオメトリックス登録についての情報を取得します。            
+            </summary>
+            <param name="accountOwner">バイオメトリックス登録を取得したいユーザのデータ。</param>
+            <returns>コンピュータ上で指定したユーザが保有するバイオメトリックス登録を示すフラグ。</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="accountOwner"/> パラメータが null です。</exception>
+        </member>
+        <member name="M:WinBiometricDotNet.WinBiometric.GetLogonSetting(System.Boolean@,WinBiometricDotNet.SettingSourceType@)">
+            <summary>
+            バイオメトリックス情報を利用してユーザがログオン可能かどうかを示す値を取得します。
+            </summary>
+            <param name="value">このメソッドから制御が戻るときに、バイオメトリックス ログオンが有効かどうかを示す値が格納されます。</param>
+            <param name="source">このメソッドから制御が戻るときに、設定ソースを示す値が格納されます。</param>
+        </member>
+        <member name="M:WinBiometricDotNet.WinBiometric.GetProperty(WinBiometricDotNet.Session,WinBiometricDotNet.PropertyType,WinBiometricDotNet.PropertyId,System.UInt32,WinBiometricDotNet.BiometricIdentity,WinBiometricDotNet.FingerPosition,System.Byte[]@)">
+            <summary>
+            セッション、装置またはテンプレートのプロパティを取得します。            
+            </summary>
+            <param name="session">オープンされたバイオメトリックス セッションを識別する <see cref="T:WinBiometricDotNet.Session"/>。</param>
+            <param name="propertyType">プロパティ情報のソースを示す値。</param>
+            <param name="propertyId">照会したいされたプロパティを示す値。</param>
+            <param name="unitId">バイオメトリックス装置を識別する値。</param>
+            <param name="identity"><paramref name="propertyId"/> パラメータの値として <see cref="F:WinBiometricDotNet.PropertyId.AntiSpoofPolicy"/> を指定する場合、アンチ スプーフィングのポリシーを取得するアカウントの SID (セキュリティ識別子) を提供するデータ。</param>
+            <param name="position">予約されています。</param>
+            <param name="propertyBuffer">このメソッドから制御が戻るときに、プロパティの値が格納されます。</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="session"/> または <paramref name="identity"/> パラメータが null です。</exception>
+        </member>
+        <member name="M:WinBiometricDotNet.WinBiometric.Identify(WinBiometricDotNet.Session)">
+            <summary>
+            バイオメトリックス サンプルをキャプチャし、既存のバイオメトリックス テンプレートと一致するかどうかを決定します。
+            </summary>
+            <param name="session">オープンされたバイオメトリックス セッションを識別する <see cref="T:WinBiometricDotNet.Session"/>。</param>
+            <returns><see cref="T:WinBiometricDotNet.IdentifyResult"/>。</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="session"/> パラメータが null です。</exception>
+        </member>
+        <member name="M:WinBiometricDotNet.WinBiometric.IdentifyWithCallback(WinBiometricDotNet.Session)">
+            <summary>
+            非同期にバイオメトリックス サンプルをキャプチャし、既存のバイオメトリックス テンプレートと一致するかどうかを決定します。
+            </summary>
+            <param name="session">オープンされたバイオメトリックス セッションを識別する <see cref="T:WinBiometricDotNet.Session"/>。</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="session"/> パラメータが null です。</exception>
+        </member>
+        <member name="M:WinBiometricDotNet.WinBiometric.LocateSensor(WinBiometricDotNet.Session)">
+            <summary>
+            ユーザによって対話形式で選択されたバイオメトリックス装置の ID 番号を取得します。
+            </summary>
+            <param name="session">オープンされたバイオメトリックス セッションを識別する <see cref="T:WinBiometricDotNet.Session"/>。</param>
+            <returns>ユーザによって対話形式で選択されたバイオメトリックス装置の ID 番号。</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="session"/> パラメータが null です。</exception>
+        </member>
+        <member name="M:WinBiometricDotNet.WinBiometric.LocateSensorWithCallback(WinBiometricDotNet.Session)">
+            <summary>
+            非同期にユーザによって対話形式で選択されたバイオメトリックス装置の ID 番号を取得します。
+            </summary>
+            <param name="session">オープンされたバイオメトリックス セッションを識別する <see cref="T:WinBiometricDotNet.Session"/>。</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="session"/> パラメータが null です。</exception>
+        </member>
+        <member name="M:WinBiometricDotNet.WinBiometric.LockUnit(WinBiometricDotNet.Session,System.UInt32)">
+            <summary>
+            単一のセッションで排他的に利用するためにバイオメトリックス装置をロックします。
+            </summary>
+            <param name="session">オープンされたバイオメトリックス セッションを識別する <see cref="T:WinBiometricDotNet.Session"/>。</param>
+            <param name="unitId">ロックするバイオメトリックス装置を識別する値。</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="session"/> パラメータが null です。</exception>
+        </member>
+        <member name="M:WinBiometricDotNet.WinBiometric.LogonIdentifiedUser(WinBiometricDotNet.Session)">
+            <summary>
+            バイオメトリックス セッションによる最後に成功した本人確認操作に関連付けられたアカウントへの高速ユーザ切り替えを発生させます。            
+            </summary>
+            <param name="session">オープンされたバイオメトリックス セッションを識別する <see cref="T:WinBiometricDotNet.Session"/>。</param>
+            <returns>関数がバイオメトリックス セッションによる最後に成功した本人確認操作に関連付けられたアカウントへ切り替えた場合は true。それ以外の場合は false。</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="session"/> パラメータが null です。</exception>
+        </member>
+        <member name="M:WinBiometricDotNet.WinBiometric.MonitorPresence(WinBiometricDotNet.Session,System.UInt32)">
+            <summary>
+            指定したバイオメトリックス装置による顔認識または虹彩監視メカニズムを有効にします。            
+            </summary>
+            <param name="session">オープンされたバイオメトリックス セッションを識別する <see cref="T:WinBiometricDotNet.Session"/>。</param>
+            <param name="unitId">顔認識または虹彩監視メカニズムを有効にしたバイオメトリックス装置の識別子。</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="session"/> パラメータが null です。</exception>
+        </member>
+        <member name="M:WinBiometricDotNet.WinBiometric.OpenFramework(System.IntPtr)">
+            <summary>
+            バイオメトリックス フレームワークのハンドルをオープンします。
+            </summary>
+            <param name="userData">呼び出し側で与えられたバッファ。</param>
+            <returns><see cref="T:WinBiometricDotNet.Framework"/>。</returns>
+        </member>
+        <member name="M:WinBiometricDotNet.WinBiometric.OpenFramework(System.IntPtr,System.UInt32)">
+            <summary>
+            バイオメトリックス フレームワークのハンドルをオープンします。
+            </summary>
+            <param name="targetWindow">完了通知を受け取るウィンドウのハンドル。</param>
+            <param name="messageCode">完了通知を表すためにフレームワークが送信するウィンドウ メッセージのコード。</param>
+            <returns><see cref="T:WinBiometricDotNet.Framework"/>。</returns>
+        </member>
+        <member name="M:WinBiometricDotNet.WinBiometric.OpenSession">
+            <summary>
+            バイオメトリックス サービス プロバイダと 1 つ以上のバイオメトリック装置へ接続します。
+            </summary>
+            <returns><see cref="T:WinBiometricDotNet.Session"/>。</returns>
+        </member>
+        <member name="M:WinBiometricDotNet.WinBiometric.OpenSession(System.IntPtr)">
+            <summary>
+            バイオメトリックス サービス プロバイダと 1 つ以上のバイオメトリック装置へ接続します。
+            </summary>
+            <param name="userData">呼び出し側で与えられたバッファ。</param>
+            <returns><see cref="T:WinBiometricDotNet.Session"/>。</returns>
+        </member>
+        <member name="M:WinBiometricDotNet.WinBiometric.OpenSession(System.IntPtr,System.UInt32)">
+            <summary>
+            バイオメトリックス サービス プロバイダと 1 つ以上のバイオメトリック装置へ接続します。
+            </summary>
+            <param name="targetWindow">完了通知を受け取るウィンドウのハンドル。</param>
+            <param name="messageCode">完了通知を表すためにフレームワークが送信するウィンドウ メッセージのコード。</param>
+            <returns><see cref="T:WinBiometricDotNet.Session"/>。</returns>
+        </member>
+        <member name="M:WinBiometricDotNet.WinBiometric.RegisterEventMonitor(WinBiometricDotNet.Session,WinBiometricDotNet.EventTypes)">
+            <summary>
+            オープンされたセッションに関連付けられたサービス プロバイダからのイベント通知の受信を開始します。
+            </summary>
+            <param name="session">オープンされたバイオメトリックス セッションを識別する <see cref="T:WinBiometricDotNet.Session"/>。</param>
+            <param name="eventType">監視するイベントの種類を示す値。</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="session"/> パラメータが null です。</exception>
+        </member>
+        <member name="M:WinBiometricDotNet.WinBiometric.ReleaseFocus">
+            <summary>
+            ウィンドウのフォーカスを解放します。
+            </summary>
+        </member>
+        <member name="M:WinBiometricDotNet.WinBiometric.RemoveAllCredentials">
+            <summary>
+            ストアから全ての資格情報を削除します。
+            </summary>
+        </member>
+        <member name="M:WinBiometricDotNet.WinBiometric.RemoveAllDomainCredentials">
+            <summary>
+            ストアから現在のドメインの全てのユーザの資格情報を削除します。
+            </summary>
+        </member>
+        <member name="M:WinBiometricDotNet.WinBiometric.RemoveCredential(WinBiometricDotNet.BiometricIdentity,WinBiometricDotNet.CredentialTypes)">
+            <summary>
+            指定したユーザのバイオメトリックス ログオン 資格情報を削除します。
+            </summary>
+            <param name="identity">削除されるログオン資格情報のユーザ アカウントの SID (セキュリティ識別子) を格納する <see cref="T:WinBiometricDotNet.BiometricIdentity"/>。</param>
+            <param name="credentialType">資格情報の種類を示す <see cref="T:WinBiometricDotNet.CredentialTypes"/>。</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="identity"/> パラメータが null です。</exception>
+        </member>
+        <member name="M:WinBiometricDotNet.WinBiometric.SelectEnroll(WinBiometricDotNet.Session,System.UInt64)">
+            <summary>
+            サンプル バッファ内に複数の個人を表現するデータが存在するときに登録したい個人を指定します。
+            </summary>
+            <param name="session">オープンされたバイオメトリックス セッションを識別する <see cref="T:WinBiometricDotNet.Session"/>。</param>
+            <param name="selectorValue">登録対象として選択したい個人を識別する値。</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="session"/> パラメータが null です。</exception>
+        </member>
+        <member name="M:WinBiometricDotNet.WinBiometric.SetCredential(WinBiometricDotNet.CredentialTypes,System.Byte[],WinBiometricDotNet.CredentialFormat)">
+            <summary>
+            現在のユーザに対してバイオメトリックス ログオン 資格情報を保存します。
+            </summary>
+            <param name="credentialType">資格情報の種類を示す <see cref="T:WinBiometricDotNet.CredentialTypes"/>。</param>
+            <param name="credential">資格情報を格納するバッファ。</param>
+            <param name="format">資格情報のフォーマットを示す <see cref="T:WinBiometricDotNet.CredentialFormat"/>。</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="credential"/> パラメータが null です。</exception>
+        </member>
+        <member name="M:WinBiometricDotNet.WinBiometric.UnlockUnit(WinBiometricDotNet.Session,System.UInt32)">
+            <summary>
+            指定したバイオメトリックス装置のセッション ロックを解放します。
+            </summary>
+            <param name="session">オープンされたバイオメトリックス セッションを識別する <see cref="T:WinBiometricDotNet.Session"/>。</param>
+            <param name="unitId">ロックを解放するバイオメトリックス装置を識別する値。</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="session"/> パラメータが null です。</exception>
+        </member>
+        <member name="M:WinBiometricDotNet.WinBiometric.UnregisterEventMonitor(WinBiometricDotNet.Session)">
+            <summary>
+            オープンされたバイオメトリックス セッションに関連付けられたサービス プロバイダからのイベント通知をキャンセルします。
+            </summary>
+            <param name="session">オープンされたバイオメトリックス セッションを識別する <see cref="T:WinBiometricDotNet.Session"/>。</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="session"/> パラメータが null です。</exception>
+        </member>
+        <member name="M:WinBiometricDotNet.WinBiometric.Verify(WinBiometricDotNet.Session,WinBiometricDotNet.BiometricUnit,WinBiometricDotNet.FingerPosition)">
+            <summary>
+            バイオメトリックス サンプルをキャプチャし、サンプルが指定したユーザ識別子に対応するかどうかを決定します。
+            </summary>
+            <param name="session">オープンされたバイオメトリックス セッションを識別する <see cref="T:WinBiometricDotNet.Session"/>。</param>
+            <param name="position">バイオメトリックス サンプルに関連付けられたサブファクタを示す <see cref="T:WinBiometricDotNet.FingerPosition"/>。</param>
+            <returns><see cref="T:WinBiometricDotNet.VerifyResult"/>。</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="session"/> パラメータが null です。</exception>
+        </member>
+        <member name="M:WinBiometricDotNet.WinBiometric.VerifyWithCallback(WinBiometricDotNet.Session,WinBiometricDotNet.BiometricUnit,WinBiometricDotNet.FingerPosition)">
+            <summary>
+            非同期にバイオメトリックス サンプルをキャプチャし、サンプルが指定したユーザ識別子に対応するかどうかを決定します。
+            </summary>
+            <param name="session">オープンされたバイオメトリックス セッションを識別する <see cref="T:WinBiometricDotNet.Session"/>。</param>
+            <param name="position">バイオメトリックス サンプルに関連付けられたサブファクタを示す <see cref="T:WinBiometricDotNet.FingerPosition"/>。</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="session"/> パラメータが null です。</exception>
+        </member>
+        <member name="M:WinBiometricDotNet.WinBiometric.Wait(WinBiometricDotNet.Session)">
+            <summary>
+            セッションに対する保留中のバイオメトリック操作がすべて完了またはキャンセルされるまで、呼び出し元の実行をブロックします。
+            </summary>
+            <param name="session">オープンされたバイオメトリックス セッションを識別する <see cref="T:WinBiometricDotNet.Session"/>。</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="session"/> パラメータが null です。</exception>
+        </member>
+        <member name="T:WinBiometricDotNet.WinBiometricException">
+            <summary>
+            この例外は、Windows Biometric Framework の汎用的な例外です。このクラスは継承できません
+            </summary>
+        </member>
+        <member name="M:WinBiometricDotNet.WinBiometricException.#ctor(System.String)">
+            <summary>
+            エラー メッセージを指定して、<see cref="T:WinBiometricDotNet.WinBiometricException"/> クラスの新しいインスタンスを初期化します。
+            </summary>
+            <param name="message">例外の原因を説明するエラー メッセージ。</param>
+        </member>
+        <member name="M:WinBiometricDotNet.WinBiometricException.#ctor(System.Int32)">
+            <summary>
+            特定の例外に割り当てられているコード化数値である HRESULT を指定して、<see cref="T:WinBiometricDotNet.WinBiometricException"/> クラスの新しいインスタンスを初期化します。
+            </summary>
+            <param name="hresult">特定の例外に割り当てられているコード化数値である HRESULT。</param>
+        </member>
+    </members>
+</doc>

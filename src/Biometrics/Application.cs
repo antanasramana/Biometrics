@@ -50,7 +50,8 @@ public class Application
                         "3 - Execute Fingerprint Function",
                         "4 - Save Fingerprints to File",
                         "5 - Read Saved Fingerprints from File",
-                        "6 - Exit"
+                        "6 - Exit",
+                        "7 - Exit With Data Deletion"
                     )
             );
 
@@ -73,6 +74,9 @@ public class Application
                     break;
                 case "6 - Exit":
                     Exit();
+                    return;
+                case "7 - Exit With Data Deletion":
+                    ExitWithDataDeletion();
                     return;
                 default:
                     AnsiConsole.MarkupLine("[red]Invalid option![/]");
@@ -275,15 +279,39 @@ public class Application
         AnsiConsole.MarkupLine("[green]Loading fingerprints from file...[/]");
         var loadedFingerPrints = _fileManager.LoadFingerPrintsFromFile();
         DisplayFingerPrints(loadedFingerPrints);
+        _fingerPrintManager.OverrideFingerPrints(loadedFingerPrints);
     }
 
     private void Exit()
     {
-        AnsiConsole.MarkupLine("[red]Initiating fingerprint removal process...[/]");
+        _biometricService.CloseSession();
+    }
 
-        foreach (var fingerPrint in _fingerPrintManager.FingerPrints)
+    private void ExitWithDataDeletion()
+    {
+        AnsiConsole.MarkupLine("[red]Initiating fingerprint removal process...[/]");
+        _fileManager.DeleteFingerPrintsFile();
+        var fingerprintPositions = _biometricService.GetEnrolledFingerPositions();
+
+        AnsiConsole.MarkupLine("[red]Scan a finger to approve deletion.[/]");
+
+        IdentifyResult? identifyResult = null;
+        while (true)
         {
-            _biometricService.DeleteTemplate(fingerPrint.Identity, fingerPrint.Position);
+            try
+            {
+                identifyResult = _biometricService.Identify();
+                break;
+            }
+            catch (WinBiometricException ex)
+            {
+                AnsiConsole.MarkupLine($"[red]{ex.Message}[/] Try again!");
+            }
+        }
+
+        foreach (var fingerPrintPosition in fingerprintPositions)
+        {
+            _biometricService.DeleteTemplate(identifyResult.Identity, fingerPrintPosition);
         }
 
         AnsiConsole.MarkupLine(

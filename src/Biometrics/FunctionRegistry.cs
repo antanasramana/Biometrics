@@ -4,9 +4,9 @@ public static class FunctionRegistry
 {
     private static readonly Dictionary<string, Action> Functions = new Dictionary<string, Action>
     {
-        { "Display Date", DisplayDate },
-        { "Say Hello", SayHello },
-        { "Display Art", DisplayArt }
+        { "DisplayDate", DisplayDate },
+        { "SayHello", SayHello },
+        { "DisplayArt", DisplayArt }
     };
 
     public static IReadOnlyDictionary<string, Action> AvailableFunctions => Functions;

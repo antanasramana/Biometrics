@@ -54,4 +54,16 @@ public class FileManager
             return new List<FingerPrint>();
         }
     }
+
+    public void DeleteFingerPrintsFile()
+    {
+        try
+        {
+            File.Delete(FingerPrintsFileName);
+        }
+        catch (Exception ex)
+        {
+            AnsiConsole.MarkupLine($"[red]Failed to delete fingerprints file: {ex.Message}[/]");
+        }
+    }
 }

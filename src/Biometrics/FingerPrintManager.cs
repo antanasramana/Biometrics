@@ -14,6 +14,12 @@ public class FingerPrintManager
         _fingerPrints.Add(fingerPrint);
     }
 
+    public void OverrideFingerPrints(IEnumerable<FingerPrint> fingerPrints)
+    {
+        _fingerPrints.Clear();
+        _fingerPrints.AddRange(fingerPrints);
+    }
+
     public void RemoveFingerPrint(FingerPrint fingerPrint)
     {
         _fingerPrints.Remove(fingerPrint);
